@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 17:09:14 by smagdela          #+#    #+#             */
-/*   Updated: 2022/06/08 12:28:16 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/06/08 16:17:58 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,9 @@ public:
 	std::string	get_nickname(void) const;
 	std::string	get_phone_number(void) const;
 	std::string	get_darkest_secret(void) const;
-	void		set_first_name(std::string str);
-	void		set_last_name(std::string str);
-	void		set_nickname(std::string str);
-	void		set_phone_number(std::string str);
-	void		set_darkest_secret(std::string str);
+
+	/* Member Functions */
+	void		display(void) const;
 
 private:
 	std::string	_first_name;

@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 16:58:01 by smagdela          #+#    #+#             */
-/*   Updated: 2022/06/08 12:30:43 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/06/08 13:49:29 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ public:
 	/* Member Functions */
 	void	add_contact(void);
 	void	display_list(void) const;
-	void	display_contact(std::size_t index) const;
-	
+
 private:
 	std::size_t	_nb_contact;
 	Contact		_contact_list[8];
