@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/06/08 15:10:56 by smagdela         ###   ########.fr        #
+#    Updated: 2022/06/09 19:11:34 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@
 #	Variables	#
 #################
 
-BIN	=	megaphone
+BIN	=	dream_job
 
-INCD	=	./
+INCD	=	includes/
 SRCD	=	sources/
 OBJD	=	objects/
 
-INCS	=	
-SRCS	=	megaphone.cpp
+INCS	=	Zombie.hpp
+SRCS	=	main.cpp	Zombie.cpp	newZombie.cpp	randomChump.cpp
 OBJS	=	${SRCS:.cpp=.o}
 
 INCS	:=	${addprefix ${INCD},${INCS}}
@@ -57,6 +57,13 @@ S_CYAN  =	\033[1;96m
 BOLD    =	\033[1m
 NC      =	\033[0m
 
+# Box Drawing Unicode
+# ┌─┬─┐
+# │ │ │
+# ├─┼─┤
+# │ │ │
+# └─┴─┘
+
 #############
 #	Rules	#
 #############
@@ -64,23 +71,23 @@ NC      =	\033[0m
 all:	${BIN}
 
 ${OBJD}%.o:	${SRCD}%.cpp
-	@echo "${S_CYAN}➤ Compiling object files...${NC}"
+	@echo "${S_CYAN}➤ Compiling $@...${NC}"
 	@mkdir -p ${OBJD}
-	@${CXX} ${CXXFLAGS} $< -c -o $@
-	@echo "${S_GREEN}✔ Object files built!\n${NC}"
+	@${CXX} ${CXXFLAGS} -c -o $@ -I${INCD} $<
+	@echo "${S_GREEN}✔ Object file built!\n${NC}"
 
 ${BIN}:	${OBJS}
-	@echo "${S_CYAN}➤ Compiling executable...${NC}"
+	@echo "${S_CYAN}➤ Compiling $@...${NC}"
 	@${CXX} ${CXXFLAGS} ${OBJS} -o ${BIN}
 	@echo "${S_GREEN}✔ Binary available!\n${NC}"
 
 clean:
-	@echo "${S_CYAN}➤ Deleting Object files...${NC}"
+	@echo "${S_RED}➤ Deleting object files...${NC}"
 	@-rm -rf ${OBJD}
 	@echo "${S_GREEN}✔ Object files deleted!\n${NC}"
 
 fclean:	clean
-	@echo "${S_CYAN}➤ Deleting executable...${NC}"
+	@echo "${S_RED}➤ Deleting executable...${NC}"
 	@-rm -rf ${BIN}
 	@echo "${S_GREEN}✔ Executable deleted!\n${NC}"
 
