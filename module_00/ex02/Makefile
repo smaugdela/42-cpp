@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/06/08 16:29:08 by smagdela         ###   ########.fr        #
+#    Updated: 2022/06/09 14:38:54 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@
 #	Variables	#
 #################
 
-BIN	=	phone_book
+BIN	=	dream_job
 
 INCD	=	includes/
 SRCD	=	sources/
 OBJD	=	objects/
 
-INCS	=	
-SRCS	=	
+INCS	=	Account.hpp
+SRCS	=	tests.cpp Account.cpp
 OBJS	=	${SRCS:.cpp=.o}
 
 INCS	:=	${addprefix ${INCD},${INCS}}
