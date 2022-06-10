@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:27:59 by smagdela          #+#    #+#             */
-/*   Updated: 2022/06/09 19:35:01 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/06/10 13:38:58 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ Zombie::~Zombie(void)
 
 void	Zombie::announce(void) const
 {
-	std::cout << this->_name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/06/09 19:11:34 by smagdela         ###   ########.fr        #
+#    Updated: 2022/06/10 12:25:48 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #	Variables	#
 #################
 
-BIN	=	dream_job
+BIN	=	double_tap
 
 INCD	=	includes/
 SRCD	=	sources/
