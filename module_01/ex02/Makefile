@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/06/10 15:21:03 by smagdela         ###   ########.fr        #
+#    Updated: 2022/06/10 15:24:46 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 #	Variables	#
 #################
 
-BIN	=	double_tap
+BIN	=	hello_brain
 
-INCS	=	Zombie.hpp
-SRCS	=	main.cpp	Zombie.cpp	zombieHorde.cpp
+INCS	=	
+SRCS	=	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 
 INCD	=	includes/
