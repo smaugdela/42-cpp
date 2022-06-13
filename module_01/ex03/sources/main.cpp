@@ -6,11 +6,13 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:23:42 by smagdela          #+#    #+#             */
-/*   Updated: 2022/06/10 16:24:31 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/06/13 11:37:09 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {

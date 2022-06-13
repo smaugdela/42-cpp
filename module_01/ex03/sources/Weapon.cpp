@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:32:00 by smagdela          #+#    #+#             */
-/*   Updated: 2022/06/10 16:52:53 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/06/13 11:36:39 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ Weapon::Weapon(std::string type) : _type(type)
 Weapon::~Weapon()
 {}
 
-std::string const	&getType(void)
+std::string const	&Weapon::getType(void) const
 {
-	std::string	&ret = this->_name;
+	std::string const	&ret = this->_type;
 
 	return (ret);
 }
 
-void				setType(std::string type)
+void				Weapon::setType(std::string type)
 {
 	this->_type = type;
 }
