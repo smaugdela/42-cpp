@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/06/13 10:58:50 by smagdela         ###   ########.fr        #
+#    Updated: 2022/06/13 19:16:27 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 #	Variables	#
 #################
 
-BIN	=	violence
+BIN	=	sed2
 
-INCS	=	Weapon.hpp	HumanA.hpp	HumanB.hpp
-SRCS	=	main.cpp	HumanA.cpp	HumanB.cpp	Weapon.cpp
+INCS	=
+SRCS	=	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 
 INCD	=	includes/
