@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 11:39:51 by smagdela          #+#    #+#             */
-/*   Updated: 2022/06/13 12:14:29 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:22:54 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,29 @@
 #include <string>
 #include <cstdlib>
 
-static void	winner_sed(std::ofstream file, std::ifstream replace_file,
+bool	gnl(std::ifstream &file, std::string &line)
+{
+	std::getline(file, line);
+	if (std::cin.fail())
+	{
+		std::cin.clear();
+		std::cin.ignore();
+		return (false);
+	}
+	return (true);
+}
+
+void	winner_sed(std::ifstream &file, std::ofstream &replace_file,
 	std::string const sep, std::string const rep)
-{}
+{
+	std::string	line;
+
+	while (gnl(file, line))
+	{
+		if (line.find/* etc... */)
+	}
+}
+	
 
 int	main(int ac, char **av)
 {

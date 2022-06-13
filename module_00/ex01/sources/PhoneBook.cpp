@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 16:55:48 by smagdela          #+#    #+#             */
-/*   Updated: 2022/06/08 16:04:21 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/06/13 15:07:27 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ std::string	prompt(std::string const field)
 	getline(std::cin, input);
 	while (!input.size())
 	{
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore();
+			std::exit(EXIT_FAILURE);
+		}
 		std::cout << field << " cannot be empty: ";
 		getline(std::cin, input);
 	}
@@ -77,6 +83,11 @@ void	PhoneBook::display_list(void) const
 	std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
 	std::cout << "Which contact do you want to consult? (enter index): ";
 	std::getline(std::cin, str_index);
+	if (std::cin.fail()) {
+		std::cin.clear();
+		std::cin.ignore();
+		std::exit(EXIT_FAILURE);
+	}
 	index = std::strtoul(str_index.c_str(), NULL, 10);
 	if (str_index.size()
 		&& str_index.find_first_not_of("0123456789+\f\t\n\r\v ") == str_index.npos
