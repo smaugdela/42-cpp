@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 16:55:48 by smagdela          #+#    #+#             */
-/*   Updated: 2022/06/13 15:07:27 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/06/14 12:13:30 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ std::string	prompt(std::string const field)
 
 	std::cout << "Enter " << field << ": ";
 	getline(std::cin, input);
+	if (std::cin.fail())
+	{
+		std::cin.clear();
+		std::cin.ignore();
+		std::exit(EXIT_FAILURE);
+	}
 	while (!input.size())
 	{
 		if (std::cin.fail())
