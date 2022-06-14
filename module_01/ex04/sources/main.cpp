@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 11:39:51 by smagdela          #+#    #+#             */
-/*   Updated: 2022/06/13 19:19:53 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/06/14 11:45:23 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@
 bool	gnl(std::ifstream &file, std::string &line)
 {
 	std::getline(file, line);
-	if (std::cin.fail())
+	if (file.eof())
+		return (false);
+	if (file.fail())
 	{
-		std::cin.clear();
-		std::cin.ignore();
+		std::cout << "Bad file stream." <<std::endl;
+		file.clear();
+		file.ignore();
 		return (false);
 	}
 	return (true);
@@ -48,7 +51,7 @@ void	winner_sed(std::ifstream &file, std::ofstream &replace_file,
 				pos += sep.size();
 			}
 			else
-				replace_file << std::endl;
+				replace_file << line.substr(start) << std::endl;
 		}
 	}
 }
@@ -59,18 +62,22 @@ int	main(int ac, char **av)
 	std::ofstream	replace_file;
 	std::string		replace_filename;
 
-	if (ac != 4)
+	if (ac != 4 || std::string(av[2]).empty())
 	{
-		std::cout << "Bad argument number." << std::endl;
+		std::cout << "Bad arguments." << std::endl;
 		return (EXIT_FAILURE);
 	}
 	file.open(av[1]);
 	if (!file.is_open())
+	{
+		std::cout << "Bad input file." << std::endl;
 		return (EXIT_FAILURE);
+	}
 	replace_filename = av[1] + std::string(".replace");
 	replace_file.open(replace_filename.c_str(), std::ios::app);
 	if (!replace_file.is_open())
 	{
+		std::cout << "Failed to create output file." << std::endl;
 		file.close();
 		return (EXIT_FAILURE);
 	}
