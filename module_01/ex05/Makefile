@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/06/14 11:57:40 by smagdela         ###   ########.fr        #
+#    Updated: 2022/06/14 17:55:07 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #	Variables	#
 #################
 
-BIN	=	
+BIN	=	complainer
 
 INCS	=	Harl.hpp
 SRCS	=	main.cpp	Harl.cpp
