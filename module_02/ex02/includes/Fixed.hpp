@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:04:24 by smagdela          #+#    #+#             */
-/*   Updated: 2022/07/27 14:57:24 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:50:54 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,14 @@ class Fixed
 		Fixed( const float n );
 		~Fixed();
 
-		Fixed &operator=( Fixed const & rhs );
+		Fixed	&operator=( Fixed const & rhs );
+
+		bool	operator>( Fixed const & rhs );
+		bool	operator<( Fixed const & rhs );
+		bool	operator>=( Fixed const & rhs );
+		bool	operator<=( Fixed const & rhs );
+		bool	operator==( Fixed const & rhs );
+		bool	operator!=( Fixed const & rhs );
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);

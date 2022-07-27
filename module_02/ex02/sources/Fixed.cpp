@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:04:16 by smagdela          #+#    #+#             */
-/*   Updated: 2022/07/27 15:10:40 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:56:58 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,25 @@
 
 Fixed::Fixed() : _raw_bits(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed( const Fixed & src )
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
 Fixed::Fixed( const int n )
 {
 	this->setRawBits(n<<this->_point_pos);
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed( const float f )
 {
 	this->setRawBits((int)roundf(f * (float)(1 << this->_point_pos)));
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 }
 
 /*
@@ -46,7 +46,7 @@ Fixed::Fixed( const float f )
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 /*
@@ -55,9 +55,51 @@ Fixed::~Fixed()
 
 Fixed	&Fixed::operator=( Fixed const & rhs )
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	this->_raw_bits = rhs.getRawBits();
+	// std::cout << "Copy assignment operator called" << std::endl;
 	return *this;
+}
+
+bool	Fixed::operator>( Fixed const & rhs )
+{
+	if (this->getRawBits() > rhs.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator<( Fixed const & rhs )
+{
+	if (this->getRawBits() < rhs.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator>=( Fixed const & rhs )
+{
+	if (*this < rhs)
+		return (false);
+	return (true);
+}
+
+bool	Fixed::operator<=( Fixed const & rhs )
+{
+	if (*this > rhs)
+		return (false);
+	return (true);
+}
+
+bool	Fixed::operator==( Fixed const & rhs )
+{
+	if (this->getRawBits() == rhs.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator!=( Fixed const & rhs )
+{
+	if (*this == rhs)
+		return (false);
+	return (true);
 }
 
 /*
