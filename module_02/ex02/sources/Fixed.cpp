@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:04:16 by smagdela          #+#    #+#             */
-/*   Updated: 2022/07/27 15:56:58 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/07/29 11:42:36 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ Fixed::Fixed( const Fixed & src )
 
 Fixed::Fixed( const int n )
 {
-	this->setRawBits(n<<this->_point_pos);
-	// std::cout << "Int constructor called" << std::endl;
+	this->setRawBits(n * (1<<Fixed::_point_pos));
+	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed( const float f )
