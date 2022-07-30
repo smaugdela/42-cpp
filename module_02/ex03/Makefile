@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/07/30 16:22:03 by smagdela         ###   ########.fr        #
+#    Updated: 2022/07/30 20:57:53 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 #	Variables	#
 #################
 
-BIN	=	a.out
+BIN	=	bsp
 
-INCS	=	Fixed.hpp
-SRCS	=	main.cpp	Fixed.cpp
+INCS	=	Fixed.hpp	Point.hpp
+SRCS	=	main.cpp	Fixed.cpp	Point.cpp	bsp.cpp
 OBJS	=	${SRCS:.cpp=.o}
 
 INCD	=	includes/

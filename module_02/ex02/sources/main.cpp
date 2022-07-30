@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 11:04:02 by smagdela          #+#    #+#             */
-/*   Updated: 2022/07/29 11:39:18 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:23:58 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,62 @@
 
 int	main(void)
 {
-	Fixed		a;
-	Fixed const	b(10);
-	Fixed const	c(42.42f);
-	Fixed const	d(b);
-	Fixed		e = -42.534f;
+	Fixed	const a(42.2f);
+	Fixed	const b(3.141592653589793f);
+	Fixed	c(0.0f);
+	Fixed	d(-666);
 
-	a = Fixed(1234.4321f);
+	std::cout << "a = " << a << std::endl;
+	std::cout << "b = " << b << std::endl;
+	std::cout << "c = " << c << std::endl;
+	std::cout << "d = " << d << std::endl;
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "e is " << e << std::endl;
+	/* arithmetic operators */
 
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	std::cout << "e is " << e.toInt() << " as integer" << std::endl;
+	std::cout << "\n\033[1mArithmetic operators:\033[0m\n" << std::endl;
+	std::cout << "a + b = " << a + b << std::endl;
+	std::cout << "a - b = " << a - b << std::endl;
+	std::cout << "a * b = " << a * b << std::endl;
+	std::cout << "a / b = " << a / b << std::endl;
+	std::cout << "c + d = " << c + d << std::endl;
+	std::cout << "c - d = " << c - d << std::endl;
+	std::cout << "c * d = " << c * d << std::endl;
+	std::cout << "c / d = " << c / d << std::endl;
+	std::cout << "c = " << c << std::endl;
+	c = ((b * a) - d + c);
+	std::cout << "c = b * a - d + c = " << c << std::endl;
+
+	/* comparisons operators */
+
+	std::cout << "\n\033[1mComparisons operators:\033[0m\n" << std::endl;
+	std::cout << "a + d < b = " << ((a + d) < b ) << std::endl;
+	std::cout << "a + d > b = " << ((a + d) > b ) << std::endl;
+	std::cout << "a + d <= b = " << ((a + d) <= b) << std::endl;
+	std::cout << "b >= b = " << (b >= b) << std::endl;
+	std::cout << "b == b = " << (b == b) << std::endl;
+	std::cout << "b != b = " << (b != b) << std::endl;
+
+	/* incrementation operators */
+
+	std::cout << "\n\033[1mIncrementation operators:\033[0m\n" << std::endl;
+	std::cout << "c = " << c << std::endl;
+	std::cout << "c++ = " << c++ << std::endl;
+	std::cout << "c = " << c << std::endl;
+	std::cout << "++c = " << ++c << std::endl;
+	std::cout << "c = " << c << std::endl;
+	std::cout << "c-- = " << c-- << std::endl;
+	std::cout << "c = " << c << std::endl;
+	std::cout << "--c = " << --c << std::endl;
+	std::cout << "c = " << c << std::endl;
+	
+
+	/* min and max */
+
+	std::cout << "\n\033[1mMin and max:\033[0m\n" << std::endl;
+	std::cout << "max(a, b) = " << Fixed::max(a, b) << std::endl;
+	std::cout << "min(a, b) = " << Fixed::min(a, b) << std::endl;
+	std::cout << "max(c, d) = " << Fixed::max(c, d) << std::endl;
+	std::cout << "min(c, d) = " << Fixed::min(c, d) << std::endl;
 
 	return 0;
 }
