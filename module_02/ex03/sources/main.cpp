@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 20:46:42 by smagdela          #+#    #+#             */
-/*   Updated: 2022/07/30 21:00:59 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:29:08 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <iostream>
 
 bool bsp( Point const a, Point const b, Point const c, Point const point );
+
+/* https://planetcalc.com/8108/ */
 
 int main()
 {
@@ -29,6 +31,12 @@ int main()
 	std::cout << "bsp = " << bsp(Point(7, 17), Point(11, 1), Point(2, 2), Point(7, -5)) << " (should display 0 here)" << std::endl;
 
 	std::cout << "bsp = " << bsp(Point(7, 17), Point(11, 1), Point(2, 2), Point(7, 3)) << " (should display 1 here)" << std::endl;
+
+	std::cout << "bsp = " << bsp(Point(0, 0), Point(11, 1), Point(2, 2), Point(7, 3)) << " (should display 0 here)" << std::endl;
+
+	std::cout << "bsp = " << bsp(Point(-0, 0.5f), Point(-4.23f, 42.2f), Point(36.7f, 5), Point(15, 3)) << " (should display 1 here)" << std::endl;
+
+	std::cout << "bsp = " << bsp(Point(7, 17), Point(11, 1), Point(2, 2), Point(20.0f, 0)) << " (should display 0 here)" << std::endl;
 
 	return 0;
 }
