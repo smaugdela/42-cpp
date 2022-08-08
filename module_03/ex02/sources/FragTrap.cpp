@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/06 17:06:42 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/08 16:12:36 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/08 14:33:18 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/08 16:15:49 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
 	this->_hit_points = 100;
-	this->_energy_points = 50;
-	this->_attack_damage = 20;
-	std::cout << "ScavTrap " << this->_name << " created." << std::endl;
+	this->_energy_points = 100;
+	this->_attack_damage = 30;
+	std::cout << "FragTrap " << this->_name << " created." << std::endl;
 }
 
-ScavTrap::ScavTrap( const ScavTrap & src ) : ClapTrap(src)
+FragTrap::FragTrap( const FragTrap & src ) : ClapTrap(src)
 {
 	this->_hit_points = src._hit_points;
 	this->_energy_points = src._energy_points;
 	this->_attack_damage = src._attack_damage;
-	std::cout << "ScavTrap " << this->_name << " created by copy." << std::endl;
+	std::cout << "FragTrap " << this->_name << " created by copy." << std::endl;
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "ScavTrap " << this->_name << " destroyed." << std::endl;
+	std::cout << "FragTrap " << this->_name << " destroyed." << std::endl;
 }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
+FragTrap &	FragTrap::operator=( FragTrap const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -57,9 +57,9 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 	return *this;
 }
 
-std::ostream &	operator<<( std::ostream & o, ScavTrap const & i )
+std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
 {
-	o << "ScavTrap " << i.getName()
+	o << "FragTrap " << i.getName()
 	<< " has " << i.getHitPoints() << " HP left, "
 	<< i.getEnergyPoints() << " Energy points left and deals "
 	<< i.getAttackDamage() << " damage.";
@@ -70,30 +70,9 @@ std::ostream &	operator<<( std::ostream & o, ScavTrap const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	ScavTrap::attack(const std::string& target)
+void FragTrap::highFivesGuys( void ) const
 {
-	std::cout << "ScavTrap " << this->getName();
-	if (this->getHitPoints() > 0 && this->getEnergyPoints() > 0)
-	{
-		std::cout << " attacks " << target
-		<< ", causing " << this->getAttackDamage()
-		<< " points of damage !" << std::endl;
-		--this->_energy_points;
-	}
-	else
-	{
-		std::cout << " cannot attack because he has no ";
-		if (this->getEnergyPoints() <= 0)
-			std::cout << "energy points left." << std::endl;
-		else
-			std::cout << "hit points left." << std::endl;
-	}
-}
-
-void	ScavTrap::guardGate( void ) const
-{
-	std::cout << "ScavTrap " << this->getName()
-	<< " has entered Gate keeper mode!" << std::endl;
+	std::cout << "I require a High Five ✋ !" << std::endl;
 }
 
 /*
