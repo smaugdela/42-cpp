@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:31:10 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/06 15:55:29 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/08 11:01:06 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class ClapTrap
 		int					getEnergyPoints() const;
 		int					getAttackDamage() const;
 
-	private:
+	protected:
 
 		std::string	_name;
 		int			_hit_points;

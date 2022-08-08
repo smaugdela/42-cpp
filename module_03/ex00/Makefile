@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/08/06 16:05:06 by smagdela         ###   ########.fr        #
+#    Updated: 2022/08/08 11:15:32 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #	Variables	#
 #################
 
-BIN	=	claptraps
+BIN	=	ClapTraps
 
 INCS	=	ClapTrap.hpp
 SRCS	=	ClapTrap.cpp	main.cpp
