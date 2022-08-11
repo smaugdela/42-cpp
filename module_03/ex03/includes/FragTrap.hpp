@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:33:20 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/09 17:01:33 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/11 11:35:00 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 # include <string>
 # include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 
 	public:
 
 		FragTrap( const std::string& name = "default FragTrap name" );
 		FragTrap( FragTrap const & src );
-		~FragTrap();
+		virtual ~FragTrap();
 
 		FragTrap &		operator=( FragTrap const & rhs );
 

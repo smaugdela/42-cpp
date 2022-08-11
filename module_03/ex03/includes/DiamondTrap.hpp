@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 17:30:50 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/09 18:39:36 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:11:37 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 # include <iostream>
 # include <string>
+# include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
-class DiamondTrap : virtual public ScavTrap, virtual public FragTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 
 	public:
@@ -31,6 +32,8 @@ class DiamondTrap : virtual public ScavTrap, virtual public FragTrap
 
 		void	attack( const std::string& target );
 		void	whoAmI( void ) const;
+
+		const std::string&	getName( void ) const;
 
 	private:
 

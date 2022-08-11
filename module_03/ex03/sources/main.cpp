@@ -6,20 +6,20 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:10:55 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/08 16:16:58 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:13:24 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstdlib>
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main(void)
 {
-	FragTrap	a("John");
-	FragTrap	b;
-	FragTrap	c("Tom");
-	FragTrap	d(c);
+	DiamondTrap	a("John");
+	DiamondTrap	b;
+	DiamondTrap	c("Tom");
+	DiamondTrap	d(c);
 	ClapTrap	e;
 
 	std::cout << "\033[0;34m\033[1m\n Introduction \033[0m\n" << std::endl;
@@ -31,8 +31,13 @@ int	main(void)
 	std::cout << e << std::endl;
 	a.highFivesGuys();
 	b.highFivesGuys();
-	c.highFivesGuys();
-	d.highFivesGuys();
+	c.guardGate();
+	d.guardGate();
+
+	a.whoAmI();
+	b.whoAmI();
+	c.whoAmI();
+	d.whoAmI();
 
 	std::cout << "\033[0;34m\033[1m\n Testing HP features \033[0m\n" << std::endl;
 

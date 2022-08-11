@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 17:30:40 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/09 18:49:49 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:13:02 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-DiamondTrap::DiamondTrap(const std::string& name) : ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap(), _name(name)
 {
-	this->FragTrap::_hit_points = FragTrap::_hit_points;
-	this-> ScavTrap::_energy_points = ScavTrap::_energy_points;
-	this-> FragTrap::_attack_damage = FragTrap::_attack_damage;
+	this->_hit_points = FragTrap::_hit_points;
+	this->_energy_points = ScavTrap::_energy_points;
+	this->_attack_damage = FragTrap::_attack_damage;
 }
 
-DiamondTrap::DiamondTrap( const DiamondTrap & src )
+DiamondTrap::DiamondTrap( const DiamondTrap & src ) : ClapTrap(src._name + "_clap_name"), ScavTrap(src._name), FragTrap(src._name), _name(src._name)
 {
+	*this = src;
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -36,16 +36,15 @@ DiamondTrap::~DiamondTrap()
 {
 }
 
-
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-DiamondTrap &				DiamondTrap::operator=( DiamondTrap const & rhs )
+DiamondTrap &	DiamondTrap::operator=( DiamondTrap const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs._name();
+		this->_name = rhs._name;
 		this->_hit_points = rhs._hit_points;
 		this->_energy_points = rhs._energy_points;
 		this->_attack_damage = rhs._attack_damage;
@@ -53,12 +52,12 @@ DiamondTrap &				DiamondTrap::operator=( DiamondTrap const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i )
+std::ostream &	operator<<( std::ostream & o, DiamondTrap const & i )
 {
 	o << "DiamondTrap " << i.getName()
-	<< " has " << i._hit_points << " HP left, "
-	<< i._energy_points << " Energy points left and deals "
-	<< i._attack_damage << " damage.";
+	<< " has " << i.getHitPoints() << " HP left, "
+	<< i.getEnergyPoints() << " Energy points left and deals "
+	<< i.getAttackDamage() << " damage.";
 	return o;
 }
 
@@ -66,9 +65,23 @@ std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	DiamondTrap::attack( const std::string& target )
+{
+	ScavTrap::attack(target);
+}
+
+void	DiamondTrap::whoAmI( void ) const
+{
+	std::cout << "I am DiamondTrap " << this->_name << " and my ClapTrap's name is " << this->ClapTrap::_name << "!" << std::endl;
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+const std::string&	DiamondTrap::getName( void ) const
+{
+	return (this->_name);
+}
 
 /* ************************************************************************** */
