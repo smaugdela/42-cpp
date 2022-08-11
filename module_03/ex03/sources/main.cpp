@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:10:55 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/11 14:13:24 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:30:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(void)
 	b.highFivesGuys();
 	c.guardGate();
 	d.guardGate();
-
 	a.whoAmI();
 	b.whoAmI();
 	c.whoAmI();

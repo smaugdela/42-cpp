@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:31:15 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/08 13:22:31 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:09:08 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ClapTrap::ClapTrap(const std::string& name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(const std::string& name) : _name(name), _hit_points(ClapTrap::_init_hit_points), _energy_points(ClapTrap::_init_energy_points), _attack_damage(ClapTrap::_init_attack_damage)
 {
 	std::cout << "ClapTrap " << this->_name << " created." << std::endl;
 }

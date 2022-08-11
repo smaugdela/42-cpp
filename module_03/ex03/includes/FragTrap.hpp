@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 14:33:20 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/11 11:35:00 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:11:13 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ class FragTrap : virtual public ClapTrap
 		FragTrap &		operator=( FragTrap const & rhs );
 
 		void highFivesGuys( void ) const;
+	
+	protected:
+
+		static const int	_init_hit_points = 100;
+		static const int	_init_energy_points = 100;
+		static const int	_init_attack_damage = 30;
 };
 
 std::ostream &			operator<<( std::ostream & o, FragTrap const & i );

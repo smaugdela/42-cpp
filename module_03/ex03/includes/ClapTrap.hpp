@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:31:10 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/08 14:17:28 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:07:35 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ class ClapTrap
 		int			_hit_points;
 		int			_energy_points;
 		int			_attack_damage;
+		
+		static const int	_init_hit_points = 10;
+		static const int	_init_energy_points = 10;
+		static const int	_init_attack_damage = 0;
 };
 
 std::ostream &			operator<<( std::ostream & o, ClapTrap const & i );
