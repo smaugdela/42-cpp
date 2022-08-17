@@ -1,76 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:51:56 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/17 17:19:24 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/17 17:17:07 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/17 17:56:01 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal(const std::string &arg) : type(arg)
+Dog::Dog() : Animal("Dog")
 {
-	std::cout << "An animal is born!" << std::endl;
+	std::cout << "A dog was born!" << std::endl;
 }
 
-Animal::Animal( const Animal & src )
+Dog::Dog( const Dog & src ) : Animal(src.getType())
 {
-	*this = src;
-	std::cout << "An animal has been cloned!" << std::endl;
+	std::cout << "A dog was cloned!" << std::endl;
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+Dog::~Dog()
 {
-	std::cout << "An animal has died." << std::endl;
+	std::cout << "A dog has died!" << std::endl;
 }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+Dog &				Dog::operator=( Dog const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->type = rhs.type;
+		this->type = rhs.getType();
 	}
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
-{
-	o << "Animal has type = " << i.getType();
-	return o;
 }
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound( void ) const
+void	Dog::makeSound( void ) const
 {
-	std::cout << "eeerrrhhhm... Nani?" << std::endl;
+	std::cout << "WOAF, WOOF!" << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string	Animal::getType( void ) const
-{
-	return this->type;
-}
 
 /* ************************************************************************** */

@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:51:56 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/17 17:19:06 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/17 17:17:10 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/17 17:48:05 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include <iostream>
 # include <string>
+# include "Animal.hpp"
 
-class Animal
+class Dog : public Animal
 {
 
 	public:
 
-		Animal(const std::string &arg = "generic animal");
-		Animal( Animal const & src );
-		~Animal();
+		Dog();
+		Dog( Dog const & src );
+		~Dog();
 
-		Animal &		operator=( Animal const & rhs );
+		Dog &		operator=( Dog const & rhs );
 
 		virtual void	makeSound( void ) const;
-
-		std::string	getType( void ) const;
-
-	protected:
-
-		std::string	type;
 };
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i );
-
-#endif /* ********************************************************** ANIMAL_H */
+#endif /* ************************************************************* DOG_H */

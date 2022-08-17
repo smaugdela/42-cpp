@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:51:56 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/17 17:19:06 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/17 17:48:21 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/17 17:52:36 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
 # include <string>
+# include "Animal.hpp"
 
-class Animal
+class Cat : public Animal
 {
 
 	public:
 
-		Animal(const std::string &arg = "generic animal");
-		Animal( Animal const & src );
-		~Animal();
+		Cat();
+		Cat( Cat const & src );
+		~Cat();
 
-		Animal &		operator=( Animal const & rhs );
+		Cat &		operator=( Cat const & rhs );
 
 		virtual void	makeSound( void ) const;
-
-		std::string	getType( void ) const;
-
-	protected:
-
-		std::string	type;
 };
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i );
-
-#endif /* ********************************************************** ANIMAL_H */
+#endif /* ************************************************************* CAT_H */
