@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:17:10 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/17 17:48:05 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/18 15:57:17 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Dog : public Animal
 
 		Dog();
 		Dog( Dog const & src );
-		~Dog();
+		virtual ~Dog();
 
 		Dog &		operator=( Dog const & rhs );
 

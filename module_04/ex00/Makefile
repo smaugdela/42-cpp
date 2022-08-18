@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/08/17 17:54:10 by smagdela         ###   ########.fr        #
+#    Updated: 2022/08/18 15:45:44 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@
 
 BIN	=	animals
 
-INCS	=	Cat.hpp	Dog.hpp	Animal.hpp
-SRCS	=	main.cpp	Cat.cpp	Dog.cpp	Animal.cpp
+INCS	=	Cat.hpp	Dog.hpp	Animal.hpp	WrongAnimal.hpp	WrongCat.hpp
+SRCS	=	main.cpp	Cat.cpp	Dog.cpp	Animal.cpp	WrongAnimal.cpp	WrongCat.cpp
 OBJS	=	${SRCS:.cpp=.o}
 
 INCD	=	includes/

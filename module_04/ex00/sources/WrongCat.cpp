@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:51:56 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/18 15:47:26 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/18 15:34:47 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/18 16:05:07 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongCat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal(const std::string &arg) : type(arg)
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-	std::cout << "An animal is born!" << std::endl;
+	std::cout << "A wrong_cat is born!" << std::endl;
 }
 
-Animal::Animal( const Animal & src )
+WrongCat::WrongCat( const WrongCat & src ) : WrongAnimal(src)
 {
 	*this = src;
-	std::cout << "An animal has been cloned!" << std::endl;
+	std::cout << "A wrong_cat has been cloned!" << std::endl;
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+WrongCat::~WrongCat()
 {
-	std::cout << "An animal has died." << std::endl;
+	std::cout << "A wrong_cat has died." << std::endl;
 }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const & rhs )
+WrongCat &				WrongCat::operator=( WrongCat const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -49,28 +49,17 @@ Animal &				Animal::operator=( Animal const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
-{
-	o << "Animal has type = " << i.getType();
-	return o;
-}
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound( void ) const
+void	WrongCat::makeSound( void ) const
 {
-	std::cout << "eeerrrhhhm... Nani?" << std::endl;
+	std::cout << "Wrong Meeeooowww" << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
-const std::string	&Animal::getType( void ) const
-{
-	return this->type;
-}
 
 /* ************************************************************************** */

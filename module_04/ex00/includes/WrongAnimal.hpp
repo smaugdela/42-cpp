@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:51:56 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/18 15:56:58 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/18 11:50:29 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/18 15:57:26 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
 # include <string>
 
-class Animal
+class WrongAnimal
 {
 
 	public:
 
-		Animal(const std::string &arg = "generic_animal");
-		Animal( Animal const & src );
-		virtual ~Animal();
+		WrongAnimal( const std::string &arg = "generic_wrong_animal" );
+		WrongAnimal( WrongAnimal const & src );
+		virtual ~WrongAnimal();
 
-		Animal &		operator=( Animal const & rhs );
+		WrongAnimal &		operator=( WrongAnimal const & rhs );
 
-		virtual void	makeSound( void ) const;
+		void	makeSound( void ) const;
 
 		const std::string	&getType( void ) const;
 
@@ -36,6 +36,6 @@ class Animal
 		std::string	type;
 };
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i );
+std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i );
 
-#endif /* ********************************************************** ANIMAL_H */
+#endif /* ***************************************************** WRONGANIMAL_H */

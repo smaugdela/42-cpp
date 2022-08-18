@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:17:07 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/17 17:56:01 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/18 15:44:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 Dog::Dog() : Animal("Dog")
 {
-	std::cout << "A dog was born!" << std::endl;
+	std::cout << "A dog is born!" << std::endl;
 }
 
-Dog::Dog( const Dog & src ) : Animal(src.getType())
+Dog::Dog( const Dog & src ) : Animal(src)
 {
-	std::cout << "A dog was cloned!" << std::endl;
+	std::cout << "A dog has been cloned!" << std::endl;
 }
 
 /*
