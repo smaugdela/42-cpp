@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:37:21 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/18 18:24:43 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/19 15:16:44 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,48 +20,52 @@
 
 int	main(void)
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	std::srand(time(NULL));
 
+	const Animal* meta = new Animal();
+	const Animal* i = new Cat();
+	const Animal* j = new Dog();
 	const Cat* k = new Cat();
 	const Cat* l = new Cat(*k);
+	const Dog* m = new Dog();
+	const Dog* n = new Dog();
 
-	const WrongAnimal* wc = new WrongCat();
-	const WrongAnimal* wa = new WrongAnimal();
-	const WrongCat* tc = new WrongCat();
+	std::cout << "\nk's brain address " << k->getBrain() << " and " << *(k->getBrain()) << "\n" << std::endl;
+	std::cout << "l's brain address " << l->getBrain() << " and " << *(l->getBrain()) << "\n" << std::endl;
+	std::cout << "m's brain address " << m->getBrain() << " and " << *(m->getBrain()) << "\n" << std::endl;
+	std::cout << "n's brain address " << n->getBrain() << " and " << *(n->getBrain()) << "\n" << std::endl;
+	n = m;
+	std::cout << "n's brain address " << n->getBrain() << " and " << *(n->getBrain()) << "\n" << std::endl;
 
-	std::cout << meta->getType() << " | Should be an Animal." << std::endl;
-	std::cout << j->getType() << " | Should be a Dog." << std::endl;
+	std::cout << "\n" << meta->getType() << " | Should be an Animal." << std::endl;
 	std::cout << i->getType() << " | Should be a Cat." << std::endl;
+	std::cout << j->getType() << " | Should be a Dog." << std::endl;
 	std::cout << k->getType() << " | Should be a Cat." << std::endl;
 	std::cout << l->getType() << " | Should be a Cat." << std::endl;
-	std::cout << wc->getType() << " | Should be a WrongCat." << std::endl;
-	std::cout << wa->getType() << " | Should be a WrongAnimal." << std::endl;
-	std::cout << tc->getType() << " | Should be a WrongCat." << std::endl;
-	std::cout << "\n\nShould be a Cat sound : ";
-	i->makeSound();
-	std::cout << "\n\nShould be a Cat sound : ";
-	k->makeSound();
-	std::cout << "\n\nShould be a Cat sound : ";
-	l->makeSound();
-	std::cout << "Should be a Dog sound : ";
-	j->makeSound();
+	std::cout << m->getType() << " | Should be a Dog." << std::endl;
+	std::cout << n->getType() << " | Should be a Dog." << std::endl;
+
 	std::cout << "Should be an Animal sound : ";
 	meta->makeSound();
-	std::cout << "Should be a WrongCat sound : ";
-	tc->makeSound();
-	std::cout << "Should be a WrongAnimal sound : ";
-	wa->makeSound();
-	std::cout << "Should be a WrongAnimal sound although it's called on a WrongCat instance (absence of virtual keyword) : ";
-	wc->makeSound();
+	std::cout << "\nShould be a Cat sound : ";
+	i->makeSound();
+	std::cout << "Should be a Dog sound : ";
+	j->makeSound();
+	std::cout << "Should be a Cat sound : ";
+	k->makeSound();
+	std::cout << "Should be a Cat sound : ";
+	l->makeSound();
+	std::cout << "Should be a Dog sound : ";
+	m->makeSound();
+	std::cout << "Should be a Dog sound : ";
+	n->makeSound();
 
 	delete meta;
-	delete j;
 	delete i;
+	delete j;
 	delete k;
-	delete wc;
-	delete wa;
-	delete tc;
+	delete l;
+	delete m;
+	delete n;
 	return EXIT_SUCCESS;
 }

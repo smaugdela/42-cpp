@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:51:56 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/18 15:56:58 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/19 13:33:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal
 		Animal( Animal const & src );
 		virtual ~Animal();
 
-		Animal &		operator=( Animal const & rhs );
+		virtual Animal &		operator=( Animal const & rhs );
 
 		virtual void	makeSound( void ) const;
 

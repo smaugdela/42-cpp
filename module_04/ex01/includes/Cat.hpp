@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:48:21 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/18 17:47:22 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/19 13:34:58 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ class Cat : public Animal
 		Cat( Cat const & src );
 		virtual ~Cat();
 
-		Cat &		operator=( Cat const & rhs );
+		virtual Cat &		operator=( Cat const & rhs );
 
 		virtual void	makeSound( void ) const;
-	
+
+		Brain	const *getBrain( void ) const;
+
 	private:
 
 		Brain	*_brain;

@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:17:07 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/18 18:19:46 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/19 14:59:31 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,10 @@ Dog::~Dog()
 
 Dog &				Dog::operator=( Dog const & rhs )
 {
-	// std::string const	*ptr = rhs._brain->getIdeas();
-
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
 		this->_brain = rhs._brain;
-		// for (size_t i = 0; i < 100; ++i)
-		// 	this->_brain->setIdea(i, ptr[i]);
 	}
 	return *this;
 }
@@ -69,5 +65,9 @@ void	Dog::makeSound( void ) const
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+Brain	const *Dog::getBrain( void ) const
+{
+	 return this->_brain;
+}
 
 /* ************************************************************************** */

@@ -6,11 +6,18 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 17:26:58 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/18 18:20:00 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/19 15:13:51 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
 #include "Brain.hpp"
+
+static char	rand_char( void )
+{
+	int value = (std::rand() % 26) + 97;
+	return (char)value;
+}
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -18,6 +25,11 @@
 
 Brain::Brain()
 {
+	for (int i = 0; i < 100; ++i)
+	{
+		for (int j = std::rand() % 10; j >= 0; --j)
+			this->_ideas[i] += rand_char();
+	}
 	std::cout << "Brain created!" << std::endl;
 }
 
@@ -57,8 +69,10 @@ std::ostream &			operator<<( std::ostream & o, Brain const & i )
 	std::string const	*ptr = i.getIdeas();
 
 	o << "Brain ideas :\n";
+	o << "{";
 	for (int j = 0; j < 100; ++j)
-		o << j << "th idea = " << ptr[j] << std::endl;
+		o << ptr[j] << ", ";
+	o << "}";
 	return o;
 }
 

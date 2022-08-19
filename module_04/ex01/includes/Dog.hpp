@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:17:10 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/18 17:51:23 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/19 13:35:05 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ class Dog : public Animal
 		Dog( Dog const & src );
 		virtual ~Dog();
 
-		Dog &		operator=( Dog const & rhs );
+		virtual Dog &		operator=( Dog const & rhs );
 
 		virtual void	makeSound( void ) const;
+
+		Brain	const *getBrain( void ) const;
 
 	private:
 
