@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:48:21 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/19 14:51:39 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/22 14:16:28 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Cat &				Cat::operator=( Cat const & rhs )
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
-		this->_brain = rhs._brain;
+		*(this->_brain) = *(rhs.getBrain());
 	}
 	return *this;
 }
