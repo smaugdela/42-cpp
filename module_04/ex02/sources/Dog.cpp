@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:17:07 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/22 17:08:36 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/23 16:04:25 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog &				Dog::operator=( Dog const & rhs )
+Dog &	Dog::operator=( Dog const & rhs )
 {
 	if ( this != &rhs )
 	{

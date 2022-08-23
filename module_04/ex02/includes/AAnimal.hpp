@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:51:56 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/22 17:19:44 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/23 16:07:11 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class AAnimal
 
 		AAnimal(const std::string &arg = "generic_animal");
 		AAnimal( AAnimal const & src );
-		virtual ~AAnimal() = 0;
+		virtual ~AAnimal();
 
-		virtual AAnimal &		operator=( AAnimal const & rhs ) = 0;
+		virtual AAnimal &		operator=( AAnimal const & rhs );
 
 		virtual void	makeSound( void ) const = 0;
 
