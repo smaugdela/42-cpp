@@ -1,52 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 12:16:30 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/24 15:51:26 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/24 15:27:24 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/24 15:48:24 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "Cure.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice() : AMateria("ice")
+Cure::Cure() : AMateria("cure")
 {
-	std::cout << "Ice instance created." << std::endl;
+	std::cout << "Cure instance created." << std::endl;
 }
 
-Ice::Ice( const Ice & src ) : AMateria(src)
+Cure::Cure( const Cure & src ) : AMateria(src)
 {
-	std::cout << "Ice instance copied." << std::endl;
+	std::cout << "Cure instance copied." << std::endl;
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
+Cure::~Cure()
 {
-	std::cout << "Ice instance destroyed." << std::endl;
+	std::cout << "Cure instance destroyed." << std::endl;
 }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const & rhs )
+Cure &				Cure::operator=( Cure const & rhs )
 {
 	if (this != &rhs)
 		this->AMateria::operator=(rhs);
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Ice const & i )
+std::ostream &			operator<<( std::ostream & o, Cure const & i )
 {
 	o << "Type = " << i.getType();
 	return o;
@@ -56,14 +56,14 @@ std::ostream &			operator<<( std::ostream & o, Ice const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria* Ice::clone() const
+AMateria* Cure::clone() const
 {
-	return (new Ice(*this));
+	return (new Cure(*this));
 }
 
-void use(ICharacter& target)
+void Cure::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
 
 /*

@@ -1,70 +1,79 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 12:16:30 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/24 15:51:26 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/24 15:52:09 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/24 16:12:49 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "Character.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice() : AMateria("ice")
+Character::Character(std::string const &name) : _name(name)
 {
-	std::cout << "Ice instance created." << std::endl;
+	std::cout << "Character instance created." << std::endl;
 }
 
-Ice::Ice( const Ice & src ) : AMateria(src)
+Character::Character( const Character & src )
 {
-	std::cout << "Ice instance copied." << std::endl;
+	*this = src;
+	std::cout << "Character instance copied." << std::endl;
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
+Character::~Character()
 {
-	std::cout << "Ice instance destroyed." << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+	}
+	std::cout << "Character instance destroyed." << std::endl;
 }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const & rhs )
+Character &				Character::operator=( Character const & rhs )
 {
-	if (this != &rhs)
-		this->AMateria::operator=(rhs);
+	if ( this != &rhs )
+	{
+		this->_name = rhs.getName();
+		for (int i = 0; i < 4; i++)
+		{
+			if (rhs._inventory[i])
+			{
+				if (this->_inventory[i])
+					delete this->_inventory[i];
+				this->_inventory[i] = rhs._inventory[i]->clone();
+			}
+		}
+	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Ice const & i )
+std::ostream &			operator<<( std::ostream & o, Character const & i )
 {
-	o << "Type = " << i.getType();
+	//o << "Value = " << i.getValue();
 	return o;
 }
+
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria* Ice::clone() const
-{
-	return (new Ice(*this));
-}
-
-void use(ICharacter& target)
-{
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

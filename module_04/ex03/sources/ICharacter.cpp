@@ -1,74 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   ICharacter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 12:16:30 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/24 15:51:26 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/24 14:37:04 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/24 15:01:00 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "ICharacter.hpp"
+
+// Not Canonical because it is an interface (See discord).
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice() : AMateria("ice")
-{
-	std::cout << "Ice instance created." << std::endl;
-}
-
-Ice::Ice( const Ice & src ) : AMateria(src)
-{
-	std::cout << "Ice instance copied." << std::endl;
-}
-
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
-{
-	std::cout << "Ice instance destroyed." << std::endl;
-}
+ICharacter::~ICharacter()
+{}
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const & rhs )
-{
-	if (this != &rhs)
-		this->AMateria::operator=(rhs);
-	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Ice const & i )
-{
-	o << "Type = " << i.getType();
-	return o;
-}
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-AMateria* Ice::clone() const
-{
-	return (new Ice(*this));
-}
-
-void use(ICharacter& target)
-{
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-}
-
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
 
 /* ************************************************************************** */

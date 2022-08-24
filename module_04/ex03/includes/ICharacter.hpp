@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 12:16:30 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/24 15:32:22 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/24 14:37:04 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/24 15:00:47 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
 # include <iostream>
 # include <string>
 # include "AMateria.hpp"
-# include "ICharacter.hpp"
 
-class Ice : public AMateria
+// Not Canonical because it is an interface (See discord).
+
+class ICharacter
 {
 	public:
-
-		Ice();
-		Ice( Ice const & src );
-		virtual ~Ice();
-
-		Ice &		operator=( Ice const & rhs );
-
-		virtual AMateria* clone() const;
-		virtual void use(ICharacter& target);
+		virtual ~ICharacter();
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
 };
 
-std::ostream &			operator<<( std::ostream & o, Ice const & i );
-
-#endif /* ************************************************************* ICE_H */
+#endif /* ****************************************************** ICHARACTER_H */

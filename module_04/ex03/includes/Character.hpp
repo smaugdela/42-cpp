@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 12:16:30 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/24 15:32:22 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/24 15:52:09 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/24 16:07:34 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include <iostream>
 # include <string>
-# include "AMateria.hpp"
 # include "ICharacter.hpp"
 
-class Ice : public AMateria
+class Character : public ICharacter
 {
 	public:
 
-		Ice();
-		Ice( Ice const & src );
-		virtual ~Ice();
+		Character( std::string const &name = "default_name" );
+		Character( Character const & src );
+		~Character();
 
-		Ice &		operator=( Ice const & rhs );
+		Character &		operator=( Character const & rhs );
 
-		virtual AMateria* clone() const;
-		virtual void use(ICharacter& target);
+	private:
+
+		std::string	_name;
+		AMateria*	_inventory[4];
 };
 
-std::ostream &			operator<<( std::ostream & o, Ice const & i );
+std::ostream &			operator<<( std::ostream & o, Character const & i );
 
-#endif /* ************************************************************* ICE_H */
+#endif /* ******************************************************* CHARACTER_H */

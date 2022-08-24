@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 12:00:54 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/24 12:06:51 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/24 15:31:46 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 # include <iostream>
 # include <string>
+# include "ICharacter.hpp"
 
 class AMateria
 {
-
 	public:
 
 		AMateria( std::string const & type );
 		AMateria( AMateria const & src );
-		~AMateria();
+		virtual ~AMateria();
 
 		AMateria &		operator=( AMateria const & rhs );
 
@@ -36,7 +36,6 @@ class AMateria
 	protected:
 
 		std::string	type;
-
 };
 
 std::ostream &			operator<<( std::ostream & o, AMateria const & i );
