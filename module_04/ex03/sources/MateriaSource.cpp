@@ -1,55 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 15:52:09 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 14:06:13 by smagdela         ###   ########.fr       */
+/*   Created: 2022/08/25 14:50:44 by smagdela          #+#    #+#             */
+/*   Updated: 2022/08/25 15:03:26 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "MateriaSource.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Character::Character(std::string const &name) : _name(name)
+MateriaSource::MateriaSource()
 {
-	std::cout << "Character instance created." << std::endl;
+	std::cout << "MateriaSource instance created." << std::endl;
 }
 
-Character::Character( const Character & src )
+MateriaSource::MateriaSource( const MateriaSource & src )
 {
 	*this = src;
-	std::cout << "Character instance copied." << std::endl;
+	std::cout << "MateriaSource instance copied." << std::endl;
 }
+
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Character::~Character()
+MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 	}
-	std::cout << "Character instance destroyed." << std::endl;
+	std::cout << "MateriaSource instance destroyed." << std::endl;
 }
+
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Character &				Character::operator=( Character const & rhs )
+MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_name = rhs.getName();
 		for (int i = 0; i < 4; i++)
 		{
 			if (rhs._inventory[i])
@@ -63,10 +64,9 @@ Character &				Character::operator=( Character const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Character const & i )
+std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
 {
-	AMateria* const & inv = i.getInventory();
-	o << "Character name = " << i.getName() << "\nInventory = {";
+	o << "MateriaSource book = {" ;
 	for (int i = 0; i < 4; i++)
 		o << inv[i]->getType() << ",";
 	o << "}";
@@ -77,47 +77,17 @@ std::ostream &			operator<<( std::ostream & o, Character const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Character::equip( AMateria* m )
+void MateriaSource::learnMateria(AMateria*)
 {
-	AMateria* const & inv = i.getInventory();
-
-	for(int i = 0; i < 4; i++)
-	{
-		if (inv[i] == NULL)
-			break;
-	}
-	if (i < 4 && inv[i] == NULL)
-		inv[i] = m;
+	for (int i = 0; i < 4; i++)
+		
 }
 
-void Character::unequip( int idx )
-{
-	AMateria* const & inv = i.getInventory();
-
-	if (idx >=0 && idx < 4)
-		inv[idx] = NULL;
-}
-
-void Character::use(int idx, ICharacter& target)
-{
-	AMateria* const & inv = i.getInventory();
-
-	if (idx >= 0 && idx < 4 && inv[idx])
-		inv[idx]->AMateria::use(target);
-}
+AMateria* MateriaSource::createMateria(std::string const & type);
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-AMateria* const & 	Character::getInventory( void )
-{
-	return (this->_inventory);
-}
-
-std::string const & Character::getName( void )
-{
-	return (this->_name);
-}
 
 /* ************************************************************************** */
