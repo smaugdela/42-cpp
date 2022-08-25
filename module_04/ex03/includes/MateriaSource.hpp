@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 14:50:44 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 14:56:13 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/25 16:08:32 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class MateriaSource : public IMateriaSource
 
 		MateriaSource &		operator=( MateriaSource const & rhs );
 
-		void learnMateria(AMateria*);
+		void learnMateria(AMateria* m);
 		AMateria* createMateria(std::string const & type);
 
 	private:

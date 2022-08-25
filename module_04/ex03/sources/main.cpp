@@ -6,9 +6,17 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 11:59:27 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/24 12:00:19 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/25 16:49:57 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
+#include <string>
+#include "AMateria.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "MateriaSource.hpp"
 
 int	main(void)
 {

@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 15:52:09 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 14:06:13 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/25 17:14:09 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ Character &				Character::operator=( Character const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Character const & i )
 {
-	AMateria* const & inv = i.getInventory();
+	AMateria**	const inv = i.getInventory();
+
 	o << "Character name = " << i.getName() << "\nInventory = {";
 	for (int i = 0; i < 4; i++)
 		o << inv[i]->getType() << ",";
@@ -79,20 +80,21 @@ std::ostream &			operator<<( std::ostream & o, Character const & i )
 
 void Character::equip( AMateria* m )
 {
-	AMateria* const & inv = i.getInventory();
+	AMateria**	inv = this->_inventory;
+	int	i;
 
-	for(int i = 0; i < 4; i++)
+	for(i = 0; i < 4; i++)
 	{
-		if (inv[i] == NULL)
+		if (&inv[i] == NULL)
 			break;
 	}
-	if (i < 4 && inv[i] == NULL)
+	if (i < 4 && &inv[i] == NULL)
 		inv[i] = m;
 }
 
 void Character::unequip( int idx )
 {
-	AMateria* const & inv = i.getInventory();
+	AMateria**	inv = this->_inventory;
 
 	if (idx >=0 && idx < 4)
 		inv[idx] = NULL;
@@ -100,7 +102,7 @@ void Character::unequip( int idx )
 
 void Character::use(int idx, ICharacter& target)
 {
-	AMateria* const & inv = i.getInventory();
+	AMateria**	inv = this->_inventory;
 
 	if (idx >= 0 && idx < 4 && inv[idx])
 		inv[idx]->AMateria::use(target);
@@ -110,12 +112,12 @@ void Character::use(int idx, ICharacter& target)
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-AMateria* const & 	Character::getInventory( void )
+AMateria**	Character::getInventory( void ) const
 {
 	return (this->_inventory);
 }
 
-std::string const & Character::getName( void )
+std::string const & Character::getName( void ) const
 {
 	return (this->_name);
 }

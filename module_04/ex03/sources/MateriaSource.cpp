@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 14:50:44 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 15:03:26 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/25 16:16:20 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i])
-			delete this->_inventory[i];
+		if (this->_book[i])
+			delete this->_book[i];
 	}
 	std::cout << "MateriaSource instance destroyed." << std::endl;
 }
@@ -53,11 +53,11 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			if (rhs._inventory[i])
+			if (rhs._book[i])
 			{
-				if (this->_inventory[i])
-					delete this->_inventory[i];
-				this->_inventory[i] = rhs._inventory[i]->clone();
+				if (this->_book[i])
+					delete this->_book[i];
+				this->_book[i] = rhs._book[i]->clone();
 			}
 		}
 	}
@@ -68,7 +68,7 @@ std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
 {
 	o << "MateriaSource book = {" ;
 	for (int i = 0; i < 4; i++)
-		o << inv[i]->getType() << ",";
+		o << this->_book[i]->getType() << ",";
 	o << "}";
 	return o;
 }
@@ -77,13 +77,26 @@ std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void MateriaSource::learnMateria(AMateria*)
+void MateriaSource::learnMateria(AMateria* m)
 {
 	for (int i = 0; i < 4; i++)
-		
+	{
+		if (this->_book[i] == NULL)
+			break;
+	}
+	if (i < 4)
+		this->_book[i] = m->clone();
 }
 
-AMateria* MateriaSource::createMateria(std::string const & type);
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (type == this->_book[i]->getType())
+			return this->_book[i]->clone();
+	}
+	return 0;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

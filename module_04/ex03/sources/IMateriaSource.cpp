@@ -6,11 +6,12 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 14:17:28 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 14:18:38 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/25 17:01:14 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "IMateriaSource.hpp"
+#include "AMateria.hpp"
 
 // Not Canonical because it is an interface (See discord).
 
@@ -25,6 +26,7 @@
 IMateriaSource::~IMateriaSource()
 {
 }
+
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */

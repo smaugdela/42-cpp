@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/08/24 11:59:21 by smagdela         ###   ########.fr        #
+#    Updated: 2022/08/25 16:30:33 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@
 
 BIN	=	interface
 
-INCS	=	
-SRCS	=	main.cpp
+INCS	=	AMateria.hpp  Character.hpp  Cure.hpp  Ice.hpp  ICharacter.hpp  IMateriaSource.hpp  MateriaSource.hpp
+SRCS	=	AMateria.cpp  Character.cpp  Cure.cpp  Ice.cpp  ICharacter.cpp  IMateriaSource.cpp  MateriaSource.cpp main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 
 INCD	=	includes/

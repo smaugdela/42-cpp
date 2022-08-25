@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:37:04 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/24 15:00:47 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/25 17:03:01 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <iostream>
 # include <string>
 # include "AMateria.hpp"
+
+
+class AMateria;
 
 // Not Canonical because it is an interface (See discord).
 

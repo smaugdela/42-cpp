@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 15:52:09 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 13:49:19 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/25 17:14:13 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Character : public ICharacter
 
 		Character &		operator=( Character const & rhs );
 
-		AMateria* const & 	getInventory( void ) const;
+		AMateria**	getInventory( void ) const;
 		std::string const & getName() const;
 
 		void equip(AMateria* m);

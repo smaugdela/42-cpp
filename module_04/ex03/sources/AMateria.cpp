@@ -6,11 +6,12 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 12:00:54 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 14:58:58 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/25 17:01:16 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -59,7 +60,7 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void use(ICharacter& target)
+void AMateria::use(ICharacter& target)
 {
 	std::cout << "* Using AMateria of type " << this->getType() << " on " << target.getName() << " *" << std::endl;
 }
@@ -68,7 +69,7 @@ void use(ICharacter& target)
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string const & getType() const
+std::string const & AMateria::getType() const
 {
 	return (this->type);
 }

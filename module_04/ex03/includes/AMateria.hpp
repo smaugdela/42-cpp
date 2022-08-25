@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 12:00:54 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/24 15:31:46 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/25 17:03:04 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <string>
 # include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
