@@ -6,12 +6,14 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 11:59:27 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 16:49:57 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/29 18:46:05 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
 #include "AMateria.hpp"
 #include "Character.hpp"
 #include "Cure.hpp"
@@ -20,26 +22,39 @@
 
 int	main(void)
 {
+	std::cout << "\033[0;34m\033[1m\n\t Constructors messages \033[0m\n" << std::endl;
+
 	IMateriaSource* src = new MateriaSource();
+	ICharacter* me = new Character("me");
+	ICharacter* bob = new Character("bob");
+	AMateria* tmp;
+	AMateria const * items[10];
+
+	std::cout << "\033[0;34m\033[1m\n\t Methods tests \033[0m\n" << std::endl;
+
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-
-	ICharacter* me = new Character("me");
-
-	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-
-	ICharacter* bob = new Character("bob");
-
 	me->use(0, *bob);
 	me->use(1, *bob);
+	items[0] = ((Character *)me)->getItem(0);
+	me->unequip(0);
+	me->equip(src->createMateria("cure"));
+	me->use(0, *bob);
+	me->use(1, *bob);
+	me->use(2, *bob);
+	me->unequip(3);
+	tmp = src->createMateria("lol");
+
+	std::cout << "\033[0;34m\033[1m\n\t Destructors messages \033[0m\n" << std::endl;
 
 	delete bob;
 	delete me;
 	delete src;
+	delete items[0];
 
 	return 0;
 }

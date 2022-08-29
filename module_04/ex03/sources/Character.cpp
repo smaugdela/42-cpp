@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 15:52:09 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 17:14:09 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/29 18:37:04 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Character::Character(std::string const &name) : _name(name)
+Character::Character(std::string const &name) : _name(name), _inventory()
 {
 	std::cout << "Character instance created." << std::endl;
 }
 
-Character::Character( const Character & src )
+Character::Character( const Character & src ) : _inventory()
 {
 	*this = src;
 	std::cout << "Character instance copied." << std::endl;
@@ -65,11 +65,9 @@ Character &				Character::operator=( Character const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Character const & i )
 {
-	AMateria**	const inv = i.getInventory();
-
 	o << "Character name = " << i.getName() << "\nInventory = {";
-	for (int i = 0; i < 4; i++)
-		o << inv[i]->getType() << ",";
+	for (int j = 0; j < 4; j++)
+		o << i.getItem(j)->getType() << ",";
 	o << "}";
 	return o;
 }
@@ -85,10 +83,10 @@ void Character::equip( AMateria* m )
 
 	for(i = 0; i < 4; i++)
 	{
-		if (&inv[i] == NULL)
+		if (inv[i] == NULL)
 			break;
 	}
-	if (i < 4 && &inv[i] == NULL)
+	if (i < 4 && inv[i] == NULL)
 		inv[i] = m;
 }
 
@@ -105,16 +103,18 @@ void Character::use(int idx, ICharacter& target)
 	AMateria**	inv = this->_inventory;
 
 	if (idx >= 0 && idx < 4 && inv[idx])
-		inv[idx]->AMateria::use(target);
+		inv[idx]->use(target);
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-AMateria**	Character::getInventory( void ) const
+AMateria const	*Character::getItem( int index ) const
 {
-	return (this->_inventory);
+	if (index >= 0 && index < 4)
+		return (this->_inventory[index]);
+	return NULL;
 }
 
 std::string const & Character::getName( void ) const

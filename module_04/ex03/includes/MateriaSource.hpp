@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 14:50:44 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 16:08:32 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/29 18:15:31 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class MateriaSource : public IMateriaSource
 
 		void learnMateria(AMateria* m);
 		AMateria* createMateria(std::string const & type);
+
+		AMateria const *getItem( int index ) const;
 
 	private:
 

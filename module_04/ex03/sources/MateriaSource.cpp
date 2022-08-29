@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 14:50:44 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/25 16:16:20 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/29 18:19:42 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-MateriaSource::MateriaSource()
+MateriaSource::MateriaSource() : _book()
 {
 	std::cout << "MateriaSource instance created." << std::endl;
 }
 
-MateriaSource::MateriaSource( const MateriaSource & src )
+MateriaSource::MateriaSource( const MateriaSource & src ) : _book()
 {
 	*this = src;
 	std::cout << "MateriaSource instance copied." << std::endl;
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -67,8 +66,8 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
 {
 	o << "MateriaSource book = {" ;
-	for (int i = 0; i < 4; i++)
-		o << this->_book[i]->getType() << ",";
+	for (int j = 0; j < 4; j++)
+		o << i.getItem(j)->getType() << ",";
 	o << "}";
 	return o;
 }
@@ -79,13 +78,15 @@ std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
 
 void MateriaSource::learnMateria(AMateria* m)
 {
-	for (int i = 0; i < 4; i++)
+	int	i;
+
+	for (i = 0; i < 4; i++)
 	{
 		if (this->_book[i] == NULL)
 			break;
 	}
 	if (i < 4)
-		this->_book[i] = m->clone();
+		this->_book[i] = m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -102,5 +103,11 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+AMateria const *MateriaSource::getItem( int index ) const
+{
+	if (index >= 0 && index < 4)
+		return (this->_book[index]);
+	return (NULL);
+}
 
 /* ************************************************************************** */
