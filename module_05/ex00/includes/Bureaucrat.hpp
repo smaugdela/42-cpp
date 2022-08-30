@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:44:34 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/30 16:40:09 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/30 18:28:09 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,10 @@ class Bureaucrat
 		Bureaucrat &		operator=( Bureaucrat const & rhs );
 
 		void	promote( void );
-		void	promote( int x );
 		void	demote( void );
-		void	demote( int x );
 
 		std::string const &getName() const;
-		int			const getGrade() const;
+		int			getGrade() const;
 
 	private:
 

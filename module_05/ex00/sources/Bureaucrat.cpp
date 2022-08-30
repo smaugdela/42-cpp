@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:44:34 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/30 16:12:43 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/30 18:28:05 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,6 @@ void	Bureaucrat::promote( void )
 	this->_grade--;
 }
 
-void	Bureaucrat::promote( int x )
-{
-	if (this->_grade - x < 1)
-		throw Bureaucrat::GradeTooHighException();
-	this->_grade -= x;
-}
-
 void	Bureaucrat::demote( void )
 {
 	if (this->_grade > 149)
@@ -85,21 +78,14 @@ void	Bureaucrat::demote( void )
 	this->_grade++;
 }
 
-void	Bureaucrat::demote( int x )
-{
-	if (this->_grade + x > 150)
-		throw Bureaucrat::GradeTooLowException();
-	this->_grade += x;
-}
-
 const char* Bureaucrat::GradeTooHighException::what( void ) const throw()
 {
-	return ("Error: Grade too high!\n");
+	return ("Error: Grade too high!");
 }
 
 const char* Bureaucrat::GradeTooLowException::what( void ) const throw()
 {
-	return ("Error: Grade too low!\n");
+	return ("Error: Grade too low!");
 }
 
 /*
@@ -111,7 +97,7 @@ std::string const &Bureaucrat::getName() const
 	return this->_name;
 }
 
-int	const Bureaucrat::getGrade() const
+int	Bureaucrat::getGrade() const
 {
 	return this->_grade;
 }
