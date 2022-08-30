@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 14:50:44 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/29 18:19:42 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/30 11:32:35 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (type == this->_book[i]->getType())
+		if (this->_book[i] && type == this->_book[i]->getType())
 			return this->_book[i]->clone();
 	}
 	return 0;
