@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:44:34 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/30 12:50:29 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/30 16:40:09 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 
 # include <iostream>
 # include <string>
+# include <stdexcept>
 
 class Bureaucrat
 {
 
 	public:
 
-		Bureaucrat( std::string name, int grade );
+		Bureaucrat( std::string name = "default_bureaucrat", int grade = 150 );
 		Bureaucrat( Bureaucrat const & src );
 		~Bureaucrat();
 
@@ -39,6 +40,16 @@ class Bureaucrat
 
 		std::string const	_name;
 		int					_grade;
+
+		class GradeTooHighException : public std::exception
+		{
+			virtual const char* what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			virtual const char* what() const throw();
+		};
 };
 
 std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i );

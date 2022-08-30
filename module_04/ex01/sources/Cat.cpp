@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:48:21 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/22 14:16:28 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:50:03 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 
 Cat::Cat() : Animal("Cat")
 {
-	this->_brain = new Brain();
 	std::cout << "A cat is born!" << std::endl;
+	this->_brain = new Brain();
 }
 
 Cat::Cat( const Cat & src ) : Animal(src)
 {
-	this->_brain = new Brain(*src.getBrain());
 	std::cout << "A cat has been cloned!" << std::endl;
+	this->_brain = new Brain(*src.getBrain());
 }
 
 /*
@@ -34,8 +34,8 @@ Cat::Cat( const Cat & src ) : Animal(src)
 
 Cat::~Cat()
 {
-	std::cout << "A cat has died." << std::endl;
 	delete this->_brain;
+	std::cout << "A cat has died." << std::endl;
 }
 
 /*

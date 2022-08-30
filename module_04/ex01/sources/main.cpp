@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:37:21 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/22 14:50:48 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:46:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ int	main(void)
 	Dog* n = new Dog();
 	Cat o = Cat();
 	Cat p = Cat();
+	const Animal* tab[10];
+	for (int i = 0; i < 10; i++)
+	{
+		if (i <= 4)
+			tab[i] = new Dog();
+		else
+			tab[i] = new Cat();
+	}
 
 	std::cout << "\033[0;34m\033[1m\n\t Brains Deep Copies Tests \033[0m\n" << std::endl;
 
@@ -89,6 +97,8 @@ int	main(void)
 	delete l;
 	delete m;
 	delete n;
+	for (int i = 0; i < 10; i++)
+		delete tab[i];
 
 	return EXIT_SUCCESS;
 }

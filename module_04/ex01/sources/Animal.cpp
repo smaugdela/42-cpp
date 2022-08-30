@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:51:56 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/18 15:47:26 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:50:14 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ Animal::Animal(const std::string &arg) : type(arg)
 
 Animal::Animal( const Animal & src )
 {
-	*this = src;
 	std::cout << "An animal has been cloned!" << std::endl;
+	*this = src;
 }
 
 /*
