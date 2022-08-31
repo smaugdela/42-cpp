@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:44:34 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/30 18:28:09 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:45:03 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
+# include "Form.hpp"
+
+class	Form;
 
 class Bureaucrat
 {
@@ -30,6 +33,7 @@ class Bureaucrat
 
 		void	promote( void );
 		void	demote( void );
+		void	signForm( Form & paper ) const;
 
 		std::string const &getName() const;
 		int			getGrade() const;

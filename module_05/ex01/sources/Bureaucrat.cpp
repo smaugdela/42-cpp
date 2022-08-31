@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:44:34 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/30 18:28:05 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:51:18 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,27 @@ void	Bureaucrat::demote( void )
 	this->_grade++;
 }
 
+void	Bureaucrat::signForm( Form & paper ) const
+{
+	try
+	{
+		paper.beSigned(*this);
+		std::cout << this->_name << " signed " << paper.getName() + "." << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->_name << " couldn't sign " << paper.getName() << " because " << e.what() << std::endl;
+	}
+}
+
 const char* Bureaucrat::GradeTooHighException::what( void ) const throw()
 {
-	return ("Error: Grade too high!");
+	return ("Bureaucrat grade is too high.");
 }
 
 const char* Bureaucrat::GradeTooLowException::what( void ) const throw()
 {
-	return ("Error: Grade too low!");
+	return ("Bureaucrat grade is too low.");
 }
 
 /*

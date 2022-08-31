@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/08/30 11:45:40 by smagdela         ###   ########.fr        #
+#    Updated: 2022/08/31 14:50:23 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,10 @@
 
 BIN	=	bureaucracy
 
-INCS	=	Bureaucrat.hpp
-SRCS	=	Bureaucrat.cpp	main.cpp
+INCS	=	Bureaucrat.hpp	Form.hpp
+SRCS	=	Bureaucrat.cpp	Form.cpp	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
-
+		
 INCD	=	includes/
 SRCD	=	sources/
 OBJD	=	objects/

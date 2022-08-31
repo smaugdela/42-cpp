@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 12:54:09 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/31 12:08:09 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:58:52 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,92 +14,66 @@
 #include <string>
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-/* Normal Behavior, default constructor */
+/* Normal Behavior, testing Form constructors */
 static void	bureaucratA()
 {
-	Bureaucrat	a;
-
-	a.promote();
-	std::cout << a << std::endl;
-	a.demote();
-	std::cout << a << std::endl;
+	Form	a;
+	Form	b("Passeport", 42, 140);
+	Form	c(b);
 }
 
-/* Normal Behavior, parametrized constructor */
+/* Testing the Bureaucrat ability to sign a Form */
 static void	bureaucratB()
 {
-	Bureaucrat	b("Igor", 42);
+	Form		f("Passeport", 42, 140);
+	Bureaucrat	b("Igor", 43);
 
+	b.signForm(f);
 	b.promote();
-	std::cout << b << std::endl;
-	b.demote();
-	std::cout << b << std::endl;
+	b.signForm(f);
+	std::cout << f << std::endl;
 }
 
-/* Demote error, copy constructor */
+/* Testing Form constructors error grade too high */
 static void	bureaucratC()
 {
-	Bureaucrat	b("Grichka", 150);
-	Bureaucrat	c(b);
+	Form	f("Holy Scripture", 0, 1);
 
-	c.promote();
-	std::cout << c << std::endl;
-	c.demote();
-	std::cout << c << std::endl;
-	c.demote();
-	std::cout << c << std::endl;
+	std::cout << f << std::endl;
 }
 
-/* Constructor grade too low error */
+/* Testing Form constructors error grade too high */
 static void	bureaucratD()
 {
-	Bureaucrat	d("Private", 4242);
+	Form	f("Holy Scripture 2.0", 1, -33);
 
-	d.promote();
-	std::cout << d << std::endl;
-	d.demote();
-	std::cout << d << std::endl;
+	std::cout << f << std::endl;
 }
 
-/* Constructor grade too high error */
+/* Testing multiple signatures */
 static void	bureaucratE()
 {
-	Bureaucrat	e("General", 0);
+	Bureaucrat	b("General", 1);
+	Form		f("Necronomicon", 5, 1);
 
-	e.promote();
-	std::cout << e << std::endl;
-	e.demote();
-	std::cout << e << std::endl;
+	b.signForm(f);
+	b.demote();
+	b.signForm(f);
 }
 
-/* Constructor grade too high error */
+/* Testing Form constructors error grade too low */
 static void	bureaucratF()
 {
-	Bureaucrat	f("God", -36);
+	Form	f("Tabloid", 1, 152);
 
-	f.promote();
 	std::cout << f << std::endl;
-	f.demote();
-	std::cout << f << std::endl;
-}
-
-/* promote error, parametrized constructor */
-static void	bureaucratG()
-{
-	Bureaucrat	b("Igor", 1);
-
-	b.demote();
-	std::cout << b << std::endl;
-	b.promote();
-	std::cout << b << std::endl;
-	b.promote();
-	std::cout << b << std::endl;
 }
 
 int main( void )
 {
-	std::cout << "\033[0;34m\033[1m\n\t Normal behavior, default constructor \033[0m\n" << std::endl;
+	std::cout << "\033[0;34m\033[1m\n\t Normal Behavior, testing Form constructors \033[0m\n" << std::endl;
 	try
 	{
 		bureaucratA();
@@ -108,7 +82,7 @@ int main( void )
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "\033[0;34m\033[1m\n\t Normal behavior, parameterized constructor \033[0m\n" << std::endl;
+	std::cout << "\033[0;34m\033[1m\n\t Testing the Bureaucrat ability to sign a Form \033[0m\n" << std::endl;
 	try
 	{
 		bureaucratB();
@@ -117,7 +91,7 @@ int main( void )
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "\033[0;34m\033[1m\n\t Demote error, copy constructor \033[0m\n" << std::endl;
+	std::cout << "\033[0;34m\033[1m\n\t Testing Form constructors error grade too high \033[0m\n" << std::endl;
 	try
 	{
 		bureaucratC();
@@ -126,7 +100,7 @@ int main( void )
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "\033[0;34m\033[1m\n\t Constructor grade too low error \033[0m\n" << std::endl;
+	std::cout << "\033[0;34m\033[1m\n\t Testing Form constructors error grade too high \033[0m\n" << std::endl;
 	try
 	{
 		bureaucratD();
@@ -135,7 +109,7 @@ int main( void )
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "\033[0;34m\033[1m\n\t Constructor grade too high error \033[0m\n" << std::endl;
+	std::cout << "\033[0;34m\033[1m\n\t Testing multiple signatures \033[0m\n" << std::endl;
 	try
 	{
 		bureaucratE();
@@ -144,19 +118,10 @@ int main( void )
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "\033[0;34m\033[1m\n\t Constructor grade too high error \033[0m\n" << std::endl;
+		std::cout << "\033[0;34m\033[1m\n\t Testing Form constructors error grade too low \033[0m\n" << std::endl;
 	try
 	{
 		bureaucratF();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << "\033[0;34m\033[1m\n\t Promote error, parameterized constructor \033[0m\n" << std::endl;
-	try
-	{
-		bureaucratG();
 	}
 	catch(const std::exception& e)
 	{
