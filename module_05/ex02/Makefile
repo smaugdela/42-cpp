@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/09/05 14:26:46 by smagdela         ###   ########.fr        #
+#    Updated: 2022/09/05 17:30:54 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@
 
 BIN	=	bureaucracy
 
-INCS	=	Bureaucrat.hpp	Form.hpp	ShrubberyCreationForm.hpp	RobotomyRequestForm.hpp	PresidentialPardonForm.hpp
-SRCS	=	Bureaucrat.cpp	Form.cpp	ShrubberyCreationForm.cpp	RobotomyRequestForm.cpp	PresidentialPardonForm.cpp	main.cpp
+INCS	=	Bureaucrat.hpp	AForm.hpp	ShrubberyCreationForm.hpp	RobotomyRequestForm.hpp	PresidentialPardonForm.hpp
+SRCS	=	Bureaucrat.cpp	AForm.cpp	ShrubberyCreationForm.cpp	RobotomyRequestForm.cpp	PresidentialPardonForm.cpp	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 		
 INCD	=	includes/

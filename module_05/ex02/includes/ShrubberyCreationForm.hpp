@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 14:27:01 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/05 15:52:25 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:32:11 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ShrubberyCreationForm : public AForm
 {
 	public:
 
-		ShrubberyCreationForm( std::string const & target = "garden" );
+		ShrubberyCreationForm( std::string & target = "garden" );
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
 		virtual ~ShrubberyCreationForm();
 

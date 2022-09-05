@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 15:54:27 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/05 16:09:16 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:32:09 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::PresidentialPardonForm( std::string const & target ) : AForm("Presidential Pardon", 25, 5), _target(target)
+PresidentialPardonForm::PresidentialPardonForm( std::string & target ) : AForm("Presidential Pardon", 25, 5), _target(target)
 {
 }
 

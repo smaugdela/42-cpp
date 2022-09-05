@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 15:53:29 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/05 15:56:28 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:32:13 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class RobotomyRequestForm : public AForm
 {
 	public:
 
-		RobotomyRequestForm( std::string const & target = "Marvin" );
+		RobotomyRequestForm( std::string & target = "Marvin" );
 		RobotomyRequestForm( RobotomyRequestForm const & src );
 		virtual ~RobotomyRequestForm();
 

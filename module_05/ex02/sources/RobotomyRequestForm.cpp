@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 15:53:29 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/05 16:08:04 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:32:06 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::RobotomyRequestForm( std::string const & target ) : AForm("Robotomy Request", 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm( std::string & target ) : AForm("Robotomy Request", 72, 45), _target(target)
 {
 	std::cout << *this << " created." << std::endl;
 }

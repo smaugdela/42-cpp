@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AAForm.hpp"
+#include "AForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -79,9 +79,9 @@ void	AForm::beSigned( Bureaucrat const &worker )
 
 void	AForm::execute(Bureaucrat const & executor) const
 {
-	if (this->getSigned == false)
+	if (this->getSigned() == false)
 		throw AForm::FormNotSignedException();
-	else if (worker.getGrade() > this->getExecuteGrade())
+	else if (executor.getGrade() > this->getExecuteGrade())
 		throw AForm::GradeTooLowException();
 	else
 		this->enforce(executor);

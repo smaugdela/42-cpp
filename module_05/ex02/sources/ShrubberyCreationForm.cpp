@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 14:27:00 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/05 16:00:58 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:32:01 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target ) : AForm("Shrubbery Creation", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm( std::string & target ) : AForm("Shrubbery Creation", 145, 137), _target(target)
 {
 	std::cout << *this << " created." << std::endl;
 }
