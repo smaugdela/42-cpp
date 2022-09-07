@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 12:54:09 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/06 19:19:27 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/07 13:48:34 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,37 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main( void )
 {
 	try
 	{
-		AForm*	a = new ShrubberyCreationForm("42");
-		AForm*	b = new RobotomyRequestForm();
-		AForm*	c = new PresidentialPardonForm();
-		Bureaucrat	d("Gardener", 137);
+		Intern	someRandomIntern;
 
-		d.signForm(*a);
-		d.signForm(*b);
-		d.signForm(*c);
+		AForm*	a = someRandomIntern.makeForm("shrubbery creation", "Jardin");
+		AForm*	b = someRandomIntern.makeForm("robotomy request", "Bender");
+		AForm*	c = someRandomIntern.makeForm("presidential pardon", "");
+		Bureaucrat	e("Gardener", 137);
+
+		/* Uncomment the two following lines to test Intern's exception */
+		// AForm*	d = someRandomIntern.makeForm("lol form", "you");
+		// (void)d;
+
+		e.signForm(*a);
+		e.signForm(*b);
+		e.signForm(*c);
 		for (int i = 0; i < 130; ++i)
-			d.promote();
-		d.signForm(*b);
-		d.signForm(*c);
-		d.executeForm(*a);
-		d.executeForm(*b);
-		d.executeForm(*b);
-		d.executeForm(*b);
-		d.executeForm(*b);
-		d.executeForm(*b);
-		d.executeForm(*c);
+			e.promote();
+		e.signForm(*b);
+		e.signForm(*c);
+		e.executeForm(*a);
+		e.executeForm(*b);
+		e.executeForm(*b);
+		e.executeForm(*b);
+		e.executeForm(*b);
+		e.executeForm(*b);
+		e.executeForm(*c);
 		delete a;
 		delete b;
 		delete c;
