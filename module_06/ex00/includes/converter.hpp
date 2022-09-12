@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 12:10:29 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/12 15:49:07 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:46:58 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <cstdlib>
 # include <limits.h>
 # include <math.h>
+# include <iomanip>
 
 typedef enum	e_origin_type	{
 	INT,

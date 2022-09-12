@@ -6,11 +6,18 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:46:50 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/12 15:50:05 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/12 17:28:02 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "converter.hpp"
+
+// static int	int_max(int a, int b)
+// {
+// 	if (b > a)
+// 		return b;
+// 	return a;
+// }
 
 int	casti(std::string& str)
 {
@@ -22,11 +29,11 @@ int	casti(std::string& str)
 	else if (!isprint(n))
 		std::cout << "Non displayable";
 	else
-		std::cout << static_cast<char>(n);
+		std::cout << "'" << static_cast<char>(n) << "'";
 	std::cout << std::endl;
 	std::cout << "int: " << n << std::endl;
-	std::cout << "float: " << static_cast<float>(n) << std::endl;
-	std::cout << "double: " << static_cast<double>(n) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(n) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(n) << std::endl;
 	return EXIT_SUCCESS;
 }
 
@@ -38,11 +45,11 @@ int	castc(std::string& str)
 	if (!isprint(c))
 		std::cout << "Non displayable";
 	else
-		std::cout << c;
+		std::cout << "'" << c << "'";
 	std::cout << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	std::cout << "float: " << static_cast<float>(c) << std::endl;
-	std::cout << "double: " << static_cast<double>(c) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 	return EXIT_SUCCESS;
 }
 
@@ -52,7 +59,7 @@ int	castf(std::string& str)
 	char	c;
 
 	std::cout << "char: ";
-	if (roundf(f) > CHAR_MAX || roundf(f) < CHAR_MIN)
+	if (f > static_cast<float>(CHAR_MAX) || f < static_cast<float>(CHAR_MIN))
 		std::cout << "impossible";
 	else
 	{
@@ -60,17 +67,17 @@ int	castf(std::string& str)
 		if (!isprint(c))
 			std::cout << "Non displayable";
 		else
-			std::cout << c;
+			std::cout << "'" << c << "'";
 	}
 	std::cout << std::endl;
 	std::cout << "int: ";
-	if (roundf(f) > INT_MAX || roundf(f) < INT_MIN)
+	if (f > static_cast<float>(INT_MAX) || f < static_cast<float>(INT_MIN))
 		std::cout << "impossible";
 	else
 		std::cout << static_cast<int>(f);
 	std::cout << std::endl;
-	std::cout << "float: " << f << std::endl;
-	std::cout << "double: " << static_cast<double>(f) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
 	return EXIT_SUCCESS;
 }
 
@@ -80,7 +87,7 @@ int	castd(std::string& str)
 	char	c;
 
 	std::cout << "char: ";
-	if (round(d) > CHAR_MAX || round(d) < CHAR_MIN)
+	if (d > static_cast<double>(CHAR_MAX) || d < static_cast<double>(CHAR_MIN))
 		std::cout << "impossible";
 	else
 	{
@@ -88,21 +95,22 @@ int	castd(std::string& str)
 		if (!isprint(c))
 			std::cout << "Non displayable";
 		else
-			std::cout << c;
+			std::cout << "'" << c << "'";
 	}
 	std::cout << std::endl;
 	std::cout << "int: ";
-	if (round(d) > INT_MAX || round(d) < INT_MIN)
+	if (d > static_cast<double>(INT_MAX) || d < static_cast<double>(INT_MIN))
 		std::cout << "impossible";
 	else
 		std::cout << static_cast<int>(d);
 	std::cout << std::endl;
 	std::cout << "float: ";
-	if (round(d) > __FLT_MAX__ || round(d) < -__FLT_MAX__)
+	if (d > static_cast<double>(__FLT_MAX__) || d < static_cast<double>(-__FLT_MAX__))
 		std::cout << "impossible";
 	else
-		std::cout << static_cast<float>(d);
-	std::cout << "double: " << d << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f";
+	std::cout << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 	return EXIT_SUCCESS;
 }
 
