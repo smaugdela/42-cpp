@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 12:10:28 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/12 17:30:13 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/12 19:22:42 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ int main(int argc, const char** argv)
 		return error(str);
 	str = std::string(argv[1]);
 	strtrim(str, " \t\n\v\f\r");
-	if (str == "")
-		return error(str);
 	origin_type = detect_type(str);
 	for (i = 0 ; origin_type != tab[i].key && tab[i].key != ERROR; ++i);
 	return tab[i].fun(str);
