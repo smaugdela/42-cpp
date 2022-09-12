@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/09/06 19:30:19 by smagdela         ###   ########.fr        #
+#    Updated: 2022/09/12 15:15:17 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 #	Variables	#
 #################
 
-BIN	=	bureaucracy
+BIN	=	convert
 
-INCS	=	Bureaucrat.hpp	AForm.hpp	ShrubberyCreationForm.hpp	RobotomyRequestForm.hpp	PresidentialPardonForm.hpp	Intern.hpp
-SRCS	=	Bureaucrat.cpp	AForm.cpp	ShrubberyCreationForm.cpp	RobotomyRequestForm.cpp	PresidentialPardonForm.cpp	Intern.cpp	main.cpp
+INCS	=	converter.hpp
+SRCS	=	casters.cpp	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 		
 INCD	=	includes/
