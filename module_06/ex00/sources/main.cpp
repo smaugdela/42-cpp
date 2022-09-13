@@ -6,23 +6,20 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 12:10:28 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/12 19:22:42 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:45:00 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "converter.hpp"
 
-static void	strtrim(std::string& str, const char *charset)
+static std::string	strtrim(std::string& str, const char *charset)
 {
 	size_t	start = str.find_first_not_of(charset);
 	size_t	end = str.find_last_not_of(charset);
 
 	if (start == std::string::npos && end == std::string::npos)
-	{
-		str = "";
-		return ;
-	}
-	str.substr(start, end - start);
+		return (str = "");
+	return (str.substr(start, end - start + 1));
 }
 
 static e_origin_type	detect_type(std::string& str)
@@ -37,6 +34,8 @@ static e_origin_type	detect_type(std::string& str)
 	for ( ; str[i] && isdigit(str[i]); ++i);
 	if (!str[i])
 		return INT;
+	else if (str[i] == 'f' && !str[++i])
+		return FLOAT;
 	if (str.length() == 1 && isprint(str[0]))
 		return CHAR;
 	i = 0;
@@ -64,7 +63,7 @@ int main(int argc, const char** argv)
 	if (argc != 2)
 		return error(str);
 	str = std::string(argv[1]);
-	strtrim(str, " \t\n\v\f\r");
+	str = strtrim(str, " \t\n\v\f\r");
 	origin_type = detect_type(str);
 	for (i = 0 ; origin_type != tab[i].key && tab[i].key != ERROR; ++i);
 	return tab[i].fun(str);

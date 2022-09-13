@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:46:50 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/12 20:56:02 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:35:43 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	casti(std::string& str)
 {
 	long	n = std::strtol(str.c_str(), NULL, 10);
 
-	std::cout << "Casting from int." <<std::endl;
 	if (n > INT_MAX || n < INT_MIN)
 		return (mission_impossible());
 	std::cout << "char: "; 
@@ -45,7 +44,6 @@ int	castc(std::string& str)
 {
 	char	c = str[0];
 
-	std::cout << "Casting from char." <<std::endl;
 	std::cout << "char: ";
 	if (!isprint(c))
 		std::cout << "Non displayable\n";
@@ -60,27 +58,25 @@ int	castc(std::string& str)
 int	castf(std::string& str)
 {
 	float	f = std::strtof(str.c_str(), NULL);
-	char	c;
 
-	std::cout << "Casting from float." <<std::endl;
-	if (errno && f == HUGE_VALF)
+	if (errno)
 		return (mission_impossible());
 	std::cout << "char: ";
-	if (f > static_cast<float>(CHAR_MAX) || f < static_cast<float>(CHAR_MIN) || isnanf(f))
+	if (round(f) > CHAR_MAX || round(f) < CHAR_MIN || isnanf(f))
 		std::cout << "impossible\n";
 	else
 	{
-		c = static_cast<char>(f);
+		char c = static_cast<char>(round(f));
 		if (!isprint(c))
 			std::cout << "Non displayable\n";
 		else
 			std::cout << "'" << c << "'\n";
 	}
 	std::cout << "int: ";
-	if (f > static_cast<float>(INT_MAX) || f < static_cast<float>(INT_MIN) || isnanf(f))
+	if (round(f) > INT_MAX || round(f) < INT_MIN || isnanf(f))
 		std::cout << "impossible\n";
 	else
-		std::cout << static_cast<int>(roundf(f)) << "\n";
+		std::cout << static_cast<int>(round(f)) << "\n";
 	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f\n";
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
 	return EXIT_SUCCESS;
@@ -89,17 +85,15 @@ int	castf(std::string& str)
 int	castd(std::string& str)
 {
 	double	d = strtod(str.c_str(), NULL);
-	char	c;
 
-	std::cout << "Casting from double." <<std::endl;
-	if (errno && d == HUGE_VAL)
+	if (errno)
 		return (mission_impossible());
 	std::cout << "char: ";
 	if (d > static_cast<double>(CHAR_MAX) || d < static_cast<double>(CHAR_MIN) || isnan(d))
 		std::cout << "impossible\n";
 	else
 	{
-		c = static_cast<char>(d);
+		char c = static_cast<char>(round(d));
 		if (!isprint(c))
 			std::cout << "Non displayable\n";
 		else
@@ -109,7 +103,7 @@ int	castd(std::string& str)
 	if (d > static_cast<double>(INT_MAX) || d < static_cast<double>(INT_MIN) || isnan(d))
 		std::cout << "impossible\n";
 	else
-		std::cout << static_cast<int>(d) << "\n";
+		std::cout << static_cast<int>(round(d)) << "\n";
 	std::cout << "float: ";
 	if (d > static_cast<double>(__FLT_MAX__) || d < static_cast<double>(-__FLT_MAX__))
 		std::cout << "impossible\n";
