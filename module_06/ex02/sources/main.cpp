@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serial.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 15:33:35 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/13 17:06:11 by smagdela         ###   ########.fr       */
+/*   Created: 2022/09/13 17:16:58 by smagdela          #+#    #+#             */
+/*   Updated: 2022/09/13 18:40:45 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIAL_HPP
-# define SERIAL_HPP
+#include "identify.hpp"
 
-# include <cstdlib>
-# include <iostream>
-# include <stdint.h>
-
-typedef struct s_Data
+int main(void)
 {
-	std::string	name;
-	char		c;
-	int			n;
-	long double	l;
-}	Data;
+	
 
-std::ostream	&operator<<(std::ostream &o, Data const &i);
-uintptr_t		serialize(Data* ptr);
-Data*			deserialize(uintptr_t raw);
-
-#endif
+	return EXIT_SUCCESS;
+}

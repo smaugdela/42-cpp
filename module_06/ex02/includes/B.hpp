@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serial.hpp                                         :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 15:33:35 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/13 17:06:11 by smagdela         ###   ########.fr       */
+/*   Created: 2022/09/13 17:51:00 by smagdela          #+#    #+#             */
+/*   Updated: 2022/09/13 17:56:15 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIAL_HPP
-# define SERIAL_HPP
+#ifndef B_HPP
+# define B_HPP
 
-# include <cstdlib>
-# include <iostream>
-# include <stdint.h>
+class B : public Base
+{};
 
-typedef struct s_Data
-{
-	std::string	name;
-	char		c;
-	int			n;
-	long double	l;
-}	Data;
-
-std::ostream	&operator<<(std::ostream &o, Data const &i);
-uintptr_t		serialize(Data* ptr);
-Data*			deserialize(uintptr_t raw);
-
-#endif
+#endif /* *************************************************************** B_H */

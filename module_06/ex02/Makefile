@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/09/13 17:05:57 by smagdela         ###   ########.fr        #
+#    Updated: 2022/09/13 17:58:08 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,12 @@
 #	Variables	#
 #################
 
-BIN	=	serial
+BIN	=	identify
 
-INCS	=	serial.hpp
-SRCS	=	serialization.cpp	main.cpp
+INCS	=	identify.hpp	Base.hpp	A.hpp	B.hpp	C.hpp
+SRCS	=	identify.cpp	Base.cpp	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
-		
+
 INCD	=	includes/
 SRCD	=	sources/
 OBJD	=	objects/
