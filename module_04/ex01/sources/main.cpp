@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:37:21 by smagdela          #+#    #+#             */
-/*   Updated: 2022/08/30 14:46:59 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:17:51 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(void)
 			tab[i] = new Cat();
 	}
 
-	std::cout << "\033[0;34m\033[1m\n\t Brains Deep Copies Tests \033[0m\n" << std::endl;
+	std::cout << "\033[0;34m\033[1m\n\t Cats and Dogs Deep Copy Tests \033[0m\n" << std::endl;
 
 	std::cout << "\nk's brain address " << k->getBrain() << " and " << *(k->getBrain()) << "\n" << std::endl;
 	std::cout << "l's brain address " << l->getBrain() << " and " << *(l->getBrain()) << "\n" << std::endl;
