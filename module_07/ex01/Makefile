@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/09/15 14:59:03 by smagdela         ###   ########.fr        #
+#    Updated: 2022/09/15 15:42:48 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 BIN	=	templates
 
-INCS	=	whatever.hpp
+INCS	=	iter.hpp
 SRCS	=	main.cpp
 OBJS	=	${SRCS:.cpp=.o}
 

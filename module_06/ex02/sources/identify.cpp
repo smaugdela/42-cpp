@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 17:49:24 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/14 11:54:55 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/15 13:14:58 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 Base*	generate(void)
 {
 	int i = std::rand() % 3;
-	if (i == 0)
+	switch (i)
 	{
-		std::cout << "Generated type A." << std::endl;
-		return reinterpret_cast<Base *>(new A);
+		case 0:
+			std::cout << "Generated type A." << std::endl;
+			return reinterpret_cast<Base *>(new A);
+		case 1:
+			std::cout << "Generated type B." << std::endl;
+			return reinterpret_cast<Base *>(new B);
+		case 2:
+			std::cout << "Generated type C." << std::endl;
+			return reinterpret_cast<Base *>(new C);
+		default:
+			break;
 	}
-	else if (i == 1)
-	{
-		std::cout << "Generated type B." << std::endl;
-		return reinterpret_cast<Base *>(new B);
-	}
-	else
-	{
-		std::cout << "Generated type C." << std::endl;
-		return reinterpret_cast<Base *>(new C);
-	}
+	return NULL;
 }
 
 void	identify(Base* p)
