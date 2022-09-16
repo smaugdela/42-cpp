@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:24:23 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/15 16:59:49 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:55:01 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,26 @@ class Array {
 	public:
 		Array<T>(void);
 		Array<T>(unsigned int n);
-		Array<T>(Array const& src);
+		Array<T>(Array<T> const& src);
 		~Array<T>(void);
 
-		Array&	operator=<T>(Array const& rhs);
-		T&		operator[]<T>(usigned int index) const throw();
+		T&			operator[](unsigned int index) const;
+		Array<T>&	operator=(Array<T> const& rhs);
 
-		unsigned int	size<T>(void) const;
+		unsigned int	size(void) const;
 
 	private:
 		T*				_tab;
 		unsigned int	_size;
+		
+		class	IndexOutOfRangeException : public std::exception {
+			virtual const char*	what(void) const throw();
+		};
 };
+
+template<typename T>
+std::ostream	&operator<<(std::ostream const& o, Array<T> const& i);
+
+#include "Array.tpp"
 
 #endif
