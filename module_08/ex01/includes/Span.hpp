@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:22:17 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/21 12:53:41 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:11:41 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 # include <iostream>
 # include <string>
+# include <algorithm>
+# include <cstdlib>
 # include <list>
+# include <limits.h>
 
 class Span
 {
@@ -43,7 +46,7 @@ class Span
 		}
 
 		unsigned int	getCapacity(void) const;
-		std::list<int>&	getTab(void) const;
+		std::list<int>	&getTab(void) const;
 
 	private:
 
