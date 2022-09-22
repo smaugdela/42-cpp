@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:22:17 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/22 15:51:20 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:28:19 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ unsigned int	Span::shortestSpan(void) const
 	std::list<int>	tmp(this->_tab);
 	unsigned int	span = UINT_MAX;
 
+	if (this->_tab.size() < 2)
+		throw Span::NotEnoughElementsException();
 	tmp.sort();
 	for (std::list<int>::iterator it = tmp.begin(); it != tmp.end(); ++it)
 	{
@@ -95,6 +97,8 @@ unsigned int	Span::longestSpan(void) const
 	int 							max;
 	std::list<int>::const_iterator	tmp;
 
+	if (this->_tab.size() < 2)
+		throw Span::NotEnoughElementsException();
 	tmp = std::min_element(this->_tab.begin(), this->_tab.end());
 	min = *tmp;
 	tmp = std::max_element(this->_tab.begin(), this->_tab.end());
@@ -114,6 +118,8 @@ std::list<int>::const_iterator	Span::fillSpan(std::list<int>::iterator begin, st
 
 std::list<int>::const_iterator	Span::randomFill(void)
 {
+	if (this->_capacity == this->_tab.size())
+		throw Span::CapacityFullException();
 	for(unsigned int i = this->_tab.size(); i < this->_capacity; ++i)
 	{
 		this->addNumber(rand());
