@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/07 10:45:38 by smagdela          #+#    #+#              #
-#    Updated: 2022/09/20 16:22:12 by smagdela         ###   ########.fr        #
+#    Updated: 2022/09/22 13:59:51 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #	Variables	#
 #################
 
-BIN	=	easyfind
+BIN	=	span
 
 INCS	=	Span.hpp
 SRCS	=	main.cpp	Span.cpp

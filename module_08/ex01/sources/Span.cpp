@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:22:17 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/21 17:10:47 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:51:20 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 
 Span::Span(unsigned int n) : _capacity(n), _tab()
 {
+	srand(time(NULL));
 }
 
 Span::Span( const Span & src ) : _capacity(src._capacity), _tab(src._tab)
 {
+	srand(time(NULL));
 }
 
 /*
@@ -50,10 +52,10 @@ Span &				Span::operator=( Span const & rhs )
 std::ostream &			operator<<( std::ostream & o, Span const & i )
 {
 	o << "Span = { ";
-	for (std::list<int>::iterator it = i.getTab().begin(); it != i.getTab().end(); ++it)
+	for (std::list<int>::const_iterator it = i.getTab().begin(); it != i.getTab().end(); ++it)
 	{
 		o << *it;
-		std::list<int>::iterator	next = it;
+		std::list<int>::const_iterator	next = it;
 		if (++next != i.getTab().end())
 			o << ", ";
 	}
@@ -89,15 +91,34 @@ unsigned int	Span::shortestSpan(void) const
 
 unsigned int	Span::longestSpan(void) const
 {
-	int							min;
-	int 						max;
-	std::list<int>::iterator	tmp;
+	int								min;
+	int 							max;
+	std::list<int>::const_iterator	tmp;
 
 	tmp = std::min_element(this->_tab.begin(), this->_tab.end());
 	min = *tmp;
 	tmp = std::max_element(this->_tab.begin(), this->_tab.end());
 	max = *tmp;
 	return (max - min);
+}
+
+std::list<int>::const_iterator	Span::fillSpan(std::list<int>::iterator begin, std::list<int>::iterator end) {
+	if (std::distance(begin, end) > this->_capacity)
+		throw Span::CapacityFullException();
+	for (std::list<int>::iterator it = this->getBegin(); it != this->getEnd() && begin != end; ++it, ++begin)
+	{
+		*it = *begin;
+	}
+	return this->_tab.begin();
+}
+
+std::list<int>::const_iterator	Span::randomFill(void)
+{
+	for(unsigned int i = this->_tab.size(); i < this->_capacity; ++i)
+	{
+		this->addNumber(rand());
+	}
+	return (this->_tab.begin());
 }
 
 const char*	Span::CapacityFullException::what(void) const throw()
@@ -119,9 +140,19 @@ unsigned int	Span::getCapacity(void) const
 	return this->_capacity;
 }
 
-std::list<int>	&Span::getTab(void) const
+std::list<int> const&	Span::getTab(void) const
 {
 	return this->_tab;
+}
+
+std::list<int>::iterator	Span::getBegin(void)
+{
+	return (this->_tab.begin());
+}
+
+std::list<int>::iterator	Span::getEnd(void)
+{
+	return (this->_tab.end());
 }
 
 /* ************************************************************************** */
