@@ -6,16 +6,16 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:21:29 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/22 16:30:55 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:21:19 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <vector>
 
 int main()
 {
 	std::cout << "\033[0;34m\033[1m\n\t Main du sujet \033[0m\n" << std::endl;
-
 	Span sp = Span(5);
 	sp.addNumber(6);
 	sp.addNumber(3);
@@ -39,6 +39,43 @@ int main()
 	std::cout << sp2 << std::endl;
 	std::cout << "Shortest span = " << sp2.shortestSpan() << std::endl;
 	std::cout << "Longest span = " << sp2.longestSpan() << std::endl;
+	try
+	{
+		sp2.fillSpan(sp.getBegin(), sp.getEnd());
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << sp2 << std::endl;
+	std::cout << "Shortest span = " << sp2.shortestSpan() << std::endl;
+	std::cout << "Longest span = " << sp2.longestSpan() << std::endl;
+	try
+	{
+		sp2.fillSpan(sp.getBegin(), sp.getBegin());
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << sp2 << std::endl;
+	std::cout << "Shortest span = " << sp2.shortestSpan() << std::endl;
+	std::cout << "Longest span = " << sp2.longestSpan() << std::endl;
+
+	std::cout << "\033[0;34m\033[1m\n\t Test de fillSpan avec 10000 nombres \033[0m\n" << std::endl;
+
+	Span 				sp2bis(10000);
+	std::vector<int>	vect(10000);
+
+	for (std::vector<int>::iterator it = vect.begin(); it != vect.end(); ++it)
+	{
+		*it = rand();
+	}
+	std::cout << sp2bis << std::endl;
+	sp2bis.fillSpan(vect.begin(), vect.end());
+	// std::cout << sp2bis << std::endl;
+	std::cout << "Shortest span = " << sp2bis.shortestSpan() << std::endl;
+	std::cout << "Longest span = " << sp2bis.longestSpan() << std::endl;
 
 	std::cout << "\033[0;34m\033[1m\n\t Test avec 10000 nombres et randomFill \033[0m\n" << std::endl;
 
@@ -49,7 +86,7 @@ int main()
 	std::cout << "Longest span = " << sp3.longestSpan() << std::endl;
 
 	std::cout << "\033[0;34m\033[1m\n\t Test des exceptions \033[0m\n" << std::endl;
-
+	{
 	try
 	{
 		sp3.addNumber(42);
@@ -86,6 +123,7 @@ int main()
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
+	}
 	}
 
 	return EXIT_SUCCESS;

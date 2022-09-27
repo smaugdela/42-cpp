@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:22:17 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/27 12:12:11 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:07:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Span::Span(unsigned int n) : _N(n), _size(0), _tab(n)
+Span::Span(unsigned int n) : _N(n), _tab()
 {
 	srand(time(NULL));
 }
 
-Span::Span( const Span & src ) : _N(src._N), _size(src._size), _tab(src._tab)
+Span::Span( const Span & src ) : _N(src._N), _tab()
 {
 	srand(time(NULL));
 }
@@ -42,7 +42,8 @@ Span &				Span::operator=( Span const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_size = rhs.getSize();
+		if (this->_N < rhs.getTab().size())
+			throw CapacityFullException();
 		this->_tab = rhs.getTab();
 	}
 	return *this;
@@ -105,18 +106,6 @@ unsigned int	Span::longestSpan(void) const
 	return (max - min);
 }
 
-template<typename T>
-void	fillSpan(typename T::iterator begin, typename T::iterator end)
-{
-	if (std::distance(begin, end) > this->_N)
-		throw Span::CapacityFullException();
-	for (std::list<int>::iterator it = this->getBegin(); it != this->getEnd() && begin != end; ++it, ++begin)
-	{
-		*it = *begin;
-	}
-	return this->_tab.begin();
-}
-
 void	Span::randomFill(void)
 {
 	if (this->_N == this->_tab.size())
@@ -141,14 +130,9 @@ const char*	Span::NotEnoughElementsException::what(void) const throw()
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-unsigned int const	Span::getN(void) const
+unsigned int	Span::getN(void) const
 {
 	return this->_N;
-}
-
-unsigned int			Span::getSize(void) const
-{
-	return this->_size;
 }
 
 std::list<int> const&	Span::getTab(void) const
