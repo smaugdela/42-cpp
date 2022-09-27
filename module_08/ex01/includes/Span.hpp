@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:22:17 by smagdela          #+#    #+#             */
-/*   Updated: 2022/09/26 12:08:43 by smagdela         ###   ########.fr       */
+/*   Updated: 2022/09/27 12:11:14 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,22 @@ class Span
 		void			addNumber(int n);
 		unsigned int	shortestSpan(void) const;
 		unsigned int	longestSpan(void) const;
-		std::list<int>::const_iterator	fillSpan(std::list<int>::iterator begin, std::list<int>::iterator end);
-		std::list<int>::const_iterator	randomFill(void);
 
-		unsigned int				getCapacity(void) const;
+		template<typename T>
+		void	fillSpan(typename T::iterator begin, typename T::iterator end);
+		void	randomFill(void);
+
+		unsigned int const			getN(void) const;
+		unsigned int				getSize(void) const;
 		std::list<int> const&		getTab(void) const;
 		std::list<int>::iterator	getBegin(void);
 		std::list<int>::iterator	getEnd(void);
 
 	private:
 
-		unsigned int	_capacity;
-		std::list<int>	_tab;
+		unsigned int const	_N;
+		unsigned int		_size;
+		std::list<int>		_tab;
 
 		class CapacityFullException : public std::exception {
 			virtual const char* what() const throw();
